@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode:实现strStr()]]></title>
+    <url>%2F2019%2F08%2F16%2Fleetcode-%E5%AE%9E%E7%8E%B0strStr%2F</url>
+    <content type="text"><![CDATA[题目内容实现 strStr() 函数。 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回 -1。 #示例 示例 1: 输入: haystack = “hello”, needle = “ll” 输出: 2 示例 2: 输入: haystack = “aaaaa”, needle = “bba” 输出: -1 类似C语言的 strstr() 以及 Java的 indexOf()函数。 python解法1class Solution(object): def strStr(self, haystack, needle): """ :type haystack: str :type needle: str :rtype: int """ for i in range(len(haystack)-len(needle)+1): if(haystack[i:len(needle)+i])==needle: return i return -1重点在于循环范围是两个字符串的差值。 java解法1class Solution { public int strStr(String haystack, String needle) { if(needle.equals("")){ return 0; } if(haystack.equals("")){ return -1; } for(int i=0;ihaystack.length()){ return -1; } if(haystack.substring(i,i+needle.length()).equals(needle)){ return i; } } return -1; } }该解法类似于python解法1，不过java要比python多出一些边界条件的限制，i+len(needle)与len(haystack）要进行比较，否则substring要报异常。 java解法2class Solution { public int strStr(String haystack, String needle) { if(needle.equals("")){ return 0; } if(haystack.equals("")){ return -1; } if (haystack.equals(needle)){ return 0; } int j=0; int i; for(i=0;i { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>算法与数据结构</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决Maven索引补全问题]]></title>
     <url>%2F2019%2F08%2F16%2F%E8%A7%A3%E5%86%B3Maven%E7%B4%A2%E5%BC%95%E8%A1%A5%E5%85%A8%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[Maven无法自动补全依赖库 将下载好的spring的jar包放在./m2/responsity中，之后在maven的setting中手动更新本地仓库的jar索引来解决。 打开设置界面，选中本地的仓库，点击右上角的update，更新maven仓库索引。 这样对于已经下载到本地的jar都可以自动进行补全了。 缺少resource文件夹，设置成resource boot，即mark dectionary as source boot,可以在该文件夹下面建立包。 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
