@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python技巧（2）]]></title>
+    <url>%2F2019%2F08%2F21%2Fpython-skill-2%2F</url>
+    <content type="text"><![CDATA[any的用法if any(name.endwith('py') for name in files） 其中如startwith()与endwith()方法中如果有多个可匹配对象，必须输入一个元组。分割字符串使用了多个界定符的情况下,界定符可以是逗号，分号，或者是空格，并且后面紧跟着任意个空格。需要注意是否使用了括号即捕获分组，形如(?:….)为非捕获分组。12line='asdf fnfkjdjs,djjwe;djwe' a=re.split(r'(?:;|,|\s)\s*',line) 生成器表达式 如果想将字符串strip操作和其他迭代操作相结合，可以使用生成器表达式 1lines=(line.strip() for line in f 这种方式十分高效，因为不需要预先读取所有数据放到一个临时列表，仅仅只是创建一个生成器。 使用 + 操作符去连接大量的字符串效率低下，加号连接引起内存复制以及垃圾回收操作。也可以利用生成器表达式转换字符串并合并。 12data=['acm',3,4,5]dada_new=','.join(str(d) for d in data) python3.8新特性 使用asyncio.run()高级API12345678910import asyncioasync def print_hello(): print('hello') await asyncio.sleep(1) print('hello again')print('开始运行')asyncio.run(print_hello())print('进入循环') document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>相关技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode:最长的斐波那契子序列的长度]]></title>
     <url>%2F2019%2F08%2F19%2Fleetcode-%E6%9C%80%E9%95%BF%E7%9A%84%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%2F</url>
     <content type="text"><![CDATA[题目内容如果序列 X_1, X_2, …, X_n 满足下列条件，就说它是 斐波那契式 的：n >= 3对于所有 i + 2 2 else 0 其中使用了迭代法，主要在于嵌套了三层循环，while的使用很重要。 Java解法1123456789101112131415161718192021class Solution { public int lenLongestFibSubseq(int[] A) { Map map=new HashMap(); for(int a=0;a < A.length;a++){ map.put(A[a],a); } int length=0; Map dict=new HashMap(); for(int k=0;k < A.length;++k){ for(int j=0;j < k;++j){ int result=map.getOrDefault(A[k]-A[j],-1); if (result=0){ int camp=dict.getOrDefault(result*A.length+j,2)+1; dict.put(j*A.length+k,camp); length=Math.max(length,camp); } } } return length>2 ? length :0; }} 使用动态规划，其中getOrDefault函数是可以获取对应键的值，如果值不存在，则提供第二个参数为默认值。可以将该问题抽象出数组索引的最长子序列问题，表达式为len(A[i,j])+1=len(A[j,k]),其中A[i,j]可以表示为i*A.length+j,若使用例如i+j来代替,则有的测试用例无法通过。 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
