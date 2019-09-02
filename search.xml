@@ -91,7 +91,7 @@
   <entry>
     <title><![CDATA[解决Maven索引补全问题]]></title>
     <url>%2F2019%2F08%2F16%2F%E8%A7%A3%E5%86%B3Maven%E7%B4%A2%E5%BC%95%E8%A1%A5%E5%85%A8%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[Maven无法自动补全依赖库 将下载好的spring的jar包放在./m2/responsity中，之后在maven的setting中手动更新本地仓库的jar索引来解决。 打开设置界面，选中本地的仓库，点击右上角的update，更新maven仓库索引。 这样对于已经下载到本地的jar都可以自动进行补全了。 缺少resource文件夹，设置成resource boot，即mark dectionary as source boot,可以在该文件夹下面建立包。 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <content type="text"><![CDATA[Maven无法自动补全依赖库 将下载好的spring的jar包放在./m2/responsity中，之后在maven的setting中手动更新本地仓库的jar索引来解决。 打开设置界面，选中本地的仓库，点击右上角的update，更新maven仓库索引。 这样对于已经下载到本地的jar都可以自动进行补全了。 缺少resource文件夹，设置成resource boot，即mark dectionary as source boot,可以在该文件夹下面建立包。 在pom.xml文件中直接添加依赖，然后点击右上角搜索框，输入maven project,点击刷新，可以对依赖库进行自动下载。 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>Maven</category>
       </categories>
