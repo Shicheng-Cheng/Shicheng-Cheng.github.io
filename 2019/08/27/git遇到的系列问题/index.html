@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="出现you need to resolve your current index first报错提示当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。 $ git reset --merge github上显示commit的Author与账户名称不符进入git bash,重新进行配置 gi">
+  <meta name="description" content="出现you need to resolve your current index first报错提示当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。 1$ git reset --merge  github上显示commit的Author与账户名称不符进入git bash,重新进行配置">
 <meta name="keywords" content="问题集合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git遇到的系列问题">
 <meta property="og:url" content="http://yoursite.com/2019/08/27/git遇到的系列问题/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="出现you need to resolve your current index first报错提示当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。 $ git reset --merge github上显示commit的Author与账户名称不符进入git bash,重新进行配置 gi">
+<meta property="og:description" content="出现you need to resolve your current index first报错提示当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。 1$ git reset --merge  github上显示commit的Author与账户名称不符进入git bash,重新进行配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-27T06:45:57.618Z">
+<meta property="og:updated_time" content="2019-09-04T06:41:41.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git遇到的系列问题">
-<meta name="twitter:description" content="出现you need to resolve your current index first报错提示当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。 $ git reset --merge github上显示commit的Author与账户名称不符进入git bash,重新进行配置 gi">
+<meta name="twitter:description" content="出现you need to resolve your current index first报错提示当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。 1$ git reset --merge  github上显示commit的Author与账户名称不符进入git bash,重新进行配置">
 
 
 
@@ -416,13 +416,23 @@
                 
               
 
-              <time title="创建时间：2019-08-27 14:20:10 / 修改时间：14:45:57" itemprop="dateCreated datePublished" datetime="2019-08-27T14:20:10+08:00">2019-08-27</time>
+              <time title="创建时间：2019-08-27 14:20:10" itemprop="dateCreated datePublished" datetime="2019-08-27T14:20:10+08:00">2019-08-27</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-04 14:41:41" itemprop="dateModified" datetime="2019-09-04T14:41:41+08:00">2019-09-04</time>
+              </span>
             
           
 
@@ -481,17 +491,61 @@
       
 
       
-        <h1 id="出现you-need-to-resolve-your-current-index-first报错提示"><a href="#出现you-need-to-resolve-your-current-index-first报错提示" class="headerlink" title="出现you need to resolve your current index first报错提示"></a>出现you need to resolve your current index first报错提示</h1><p>当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。</p>
-<p><code>$ git reset --merge</code></p>
-<h1 id="github上显示commit的Author与账户名称不符"><a href="#github上显示commit的Author与账户名称不符" class="headerlink" title="github上显示commit的Author与账户名称不符"></a>github上显示commit的Author与账户名称不符</h1><p>进入git bash,重新进行配置</p>
-<p><code>git config --global user.name "xxx"</code></p>
-<p><code>git config --global user.email "xxx"</code></p>
-<h1 id="出现Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind报错提"><a href="#出现Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind报错提" class="headerlink" title="出现Updates were rejected because the tip of your current branch is behind报错提"></a>出现Updates were rejected because the tip of your current branch is behind报错提</h1><p>说明当前的分支代码不是最新的代码，需要更新一下master分支</p>
+        <h2 id="出现you-need-to-resolve-your-current-index-first报错提示"><a href="#出现you-need-to-resolve-your-current-index-first报错提示" class="headerlink" title="出现you need to resolve your current index first报错提示"></a>出现you need to resolve your current index first报错提示</h2><p>当使用git checkout 切换分支时会提示you need to resolve your current index first，使用如下命令即可解决。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --merge</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="github上显示commit的Author与账户名称不符"><a href="#github上显示commit的Author与账户名称不符" class="headerlink" title="github上显示commit的Author与账户名称不符"></a>github上显示commit的Author与账户名称不符</h2><p>进入git bash,重新进行配置</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xxx"</span> </span><br><span class="line">$ git config --global user.email <span class="string">"xxx"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="出现Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind报错提示"><a href="#出现Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind报错提示" class="headerlink" title="出现Updates were rejected because the tip of your current branch is behind报错提示"></a>出现Updates were rejected because the tip of your current branch is behind报错提示</h2><p>说明当前的分支代码不是最新的代码，需要更新一下master分支</p>
 <ul>
-<li>push前先将远程repository修改pull下来</li>
-<li>git checkout master</li>
-<li>git pull origin master</li>
-<li>git push -u origin master</li>
+<li><p>push前先将远程repository修改pull下来</p>
+</li>
+<li><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git pull origin master</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h2 id="git-push时出现Everything-up-to-date报错提示"><a href="#git-push时出现Everything-up-to-date报错提示" class="headerlink" title="git push时出现Everything up-to-date报错提示"></a>git push时出现Everything up-to-date报错提示</h2><ul>
+<li><p>如果之前未提交过文件，而你在git push的时候出现Everything up-to-date，并且文件也没有提交上去。可能是因为你没有git add 和 git commit。 </p>
+</li>
+<li><p>也可能是git提交改动到缓存，要push的时候不会将本地所有的分支都push掉，所以出现这个问题。应该告诉git提交哪个分支。</p>
+<p>这里有种特殊的情况是如果fork别人的仓库再clone到本地的话，即使git上只有一个主分支，他还是可能出现这个错误。那么我们就需要新建分支提交改动然后合并分支。</p>
+<p>接下来先创建一个新分支提交改动</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch newbranch</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后输入这条命令检查是否创建成功</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></tbody></table></figure>
+
+<p> 终端输出</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  newbranch</span><br><span class="line">* master</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样就创建成功了，前面的*代表的是当前所在的工作分支。接下来就要切换工作分支。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout newbranch</span><br></pre></td></tr></tbody></table></figure>
+
+<p> 可以 <code>$ git branch</code> 确认下。然后将改动提交到新的分支上。 </p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -a</span><br></pre></td></tr></tbody></table></figure>
+
+<p>此时可以 <code>$ git status</code> 检查下提交情况。如果提交成功，接下来就要回主分支了，代码和之前一样。 </p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后将新分支提交的改动合并到主分支上</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge newbranch</span><br></pre></td></tr></tbody></table></figure>
+
+<p>合并分支可能产生冲突，下面的代码可以查看产生冲突的文件，然后做对应的修改再提交一次就可以了。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></tbody></table></figure>
+
+<p>接下来就可以push代码了。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后不能忘记删除分支</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -D newbranch</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如想保留分支只是想删除已经合并的部分只要把大写的D改成小写的d就行了。</p>
+</li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -637,7 +691,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -662,7 +716,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -740,7 +796,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#出现you-need-to-resolve-your-current-index-first报错提示"><span class="nav-number">1.</span> <span class="nav-text">出现you need to resolve your current index first报错提示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github上显示commit的Author与账户名称不符"><span class="nav-number">2.</span> <span class="nav-text">github上显示commit的Author与账户名称不符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#出现Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind报错提"><span class="nav-number">3.</span> <span class="nav-text">出现Updates were rejected because the tip of your current branch is behind报错提</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#出现you-need-to-resolve-your-current-index-first报错提示"><span class="nav-number">1.</span> <span class="nav-text">出现you need to resolve your current index first报错提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github上显示commit的Author与账户名称不符"><span class="nav-number">2.</span> <span class="nav-text">github上显示commit的Author与账户名称不符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#出现Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind报错提示"><span class="nav-number">3.</span> <span class="nav-text">出现Updates were rejected because the tip of your current branch is behind报错提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-push时出现Everything-up-to-date报错提示"><span class="nav-number">4.</span> <span class="nav-text">git push时出现Everything up-to-date报错提示</span></a></li></ol></div>
             
 
           </div>
