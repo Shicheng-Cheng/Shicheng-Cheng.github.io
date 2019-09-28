@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="生产者12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849import java.util.Random;import java.util.Vector;import java.util.concurrent.atomic.AtomicInteger;public clas">
-<meta name="keywords" content="手撕算法">
+  <meta name="description" content="常量池的划分 Class 文件常量池 运行时常量池 字符串常量池  Class 文件常量池Class 文件常量池指的是编译生成的 class 字节码文件，其结构中有一项是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。 什么是字面量和符号引用？字面量指字符串字面量和声明为 final 的（基本数据类型）常量值，这些字符串字面量除了类中所有双引">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="生产者消费者">
-<meta property="og:url" content="http://yoursite.com/2019/09/25/生产者消费者/index.html">
+<meta property="og:title" content="java中的常量池种种">
+<meta property="og:url" content="http://yoursite.com/2019/09/28/java中的常量池种种/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="生产者12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849import java.util.Random;import java.util.Vector;import java.util.concurrent.atomic.AtomicInteger;public clas">
+<meta property="og:description" content="常量池的划分 Class 文件常量池 运行时常量池 字符串常量池  Class 文件常量池Class 文件常量池指的是编译生成的 class 字节码文件，其结构中有一项是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。 什么是字面量和符号引用？字面量指字符串字面量和声明为 final 的（基本数据类型）常量值，这些字符串字面量除了类中所有双引">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T09:15:59.030Z">
+<meta property="og:updated_time" content="2019-09-28T13:54:56.808Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生产者消费者">
-<meta name="twitter:description" content="生产者12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849import java.util.Random;import java.util.Vector;import java.util.concurrent.atomic.AtomicInteger;public clas">
+<meta name="twitter:title" content="java中的常量池种种">
+<meta name="twitter:description" content="常量池的划分 Class 文件常量池 运行时常量池 字符串常量池  Class 文件常量池Class 文件常量池指的是编译生成的 class 字节码文件，其结构中有一项是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。 什么是字面量和符号引用？字面量指字符串字面量和声明为 final 的（基本数据类型）常量值，这些字符串字面量除了类中所有双引">
 
 
 
@@ -117,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/09/25/生产者消费者/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/28/java中的常量池种种/">
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>生产者消费者 | Pluto</title>
+  <title>java中的常量池种种 | Pluto</title>
   
 
 
@@ -373,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/生产者消费者/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/java中的常量池种种/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Magical Cheng">
@@ -390,7 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">生产者消费者<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/生产者消费者.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+          <h1 class="post-title" itemprop="name headline">java中的常量池种种<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/java中的常量池种种.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
               
             
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2019-09-25 10:10:53 / 修改时间：17:15:59" itemprop="dateCreated datePublished" datetime="2019-09-25T10:10:53+08:00">2019-09-25</time>
+              <time title="创建时间：2019-09-28 21:21:51 / 修改时间：21:54:56" itemprop="dateCreated datePublished" datetime="2019-09-28T21:21:51+08:00">2019-09-28</time>
             </span>
           
 
@@ -435,7 +435,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法与数据结构/" itemprop="url" rel="index"><span itemprop="name">算法与数据结构</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/基础知识/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a></span>
 
                 
                 
@@ -481,15 +481,19 @@
       
 
       
-        <h4 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line">import java.util.Vector;</span><br><span class="line">import java.util.concurrent.atomic.AtomicInteger;</span><br><span class="line"></span><br><span class="line">public class Producer implements  Runnable {</span><br><span class="line">    //使用volatile标志是否需要可见性，方便提供给stop()方法</span><br><span class="line">    private volatile  boolean needProduce=true;</span><br><span class="line">    //定义缓冲区</span><br><span class="line">    private  final Vector sharequeue;</span><br><span class="line">    //定义容量</span><br><span class="line">    private  final  int Size;</span><br><span class="line">    //static修饰，既能计数，又能保证是线程安全的</span><br><span class="line">    private  static AtomicInteger count=new AtomicInteger();</span><br><span class="line">    public Producer(Vector vector,int Size){</span><br><span class="line">        this.Size=Size;</span><br><span class="line">        this.sharequeue=vector;</span><br><span class="line">    }</span><br><span class="line">    @Override</span><br><span class="line">    public void run() {</span><br><span class="line">        int  data;</span><br><span class="line">        Random random=new Random();</span><br><span class="line">        System.out.println("start product id= "+Thread.currentThread().getId());</span><br><span class="line">        try {</span><br><span class="line">            while (needProduce){</span><br><span class="line">                //模拟延迟</span><br><span class="line">                Thread.sleep(random.nextInt(1000));</span><br><span class="line">                //当缓冲区大小达到最大容量，便阻塞</span><br><span class="line">                while (sharequeue.size()==Size){</span><br><span class="line">                    synchronized (sharequeue){</span><br><span class="line">                        System.out.println("Queue is full,produer "+Thread.currentThread().getId()+"is waiting "+sharequeue.size());</span><br><span class="line">                        sharequeue.wait();</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">                synchronized (sharequeue){</span><br><span class="line">                    data=count.incrementAndGet();</span><br><span class="line">                    sharequeue.add(data);</span><br><span class="line">                    System.out.println("create data: "+data+",size: "+sharequeue.size());</span><br><span class="line">                    sharequeue.notifyAll();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }catch (InterruptedException e){</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            Thread.currentThread().interrupt();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    public void stop(){</span><br><span class="line">        needProduce=false;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>使用while循环是为了避免虚假唤醒。</p>
-<h4 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Vector sharequeue;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Consumer</span><span class="params">(Vector sharequeue)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.sharequeue = sharequeue;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line">        System.out.println(<span class="string">"start consumer id= "</span> + Thread.currentThread().getId());</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">                Thread.sleep(random.nextInt(<span class="number">1000</span>));</span><br><span class="line">                <span class="keyword">while</span> (sharequeue.isEmpty()) {</span><br><span class="line">                    <span class="keyword">synchronized</span> (sharequeue) {</span><br><span class="line">                        System.out.println(<span class="string">"Queue is empty: ,consumer"</span> + Thread.currentThread().getId() + <span class="string">"is running,size="</span> + sharequeue.size());</span><br><span class="line">                        sharequeue.wait();</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">synchronized</span> (sharequeue) {</span><br><span class="line">                    System.out.println(<span class="string">"consumer consume data: "</span> + sharequeue.remove(<span class="number">0</span>) + <span class="string">",size: "</span> + sharequeue.size());</span><br><span class="line">                    sharequeue.notifyAll();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            Thread.currentThread().interrupt();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executor;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span>  InterruptedException</span>{</span><br><span class="line">        Vector vector=<span class="keyword">new</span> Vector();</span><br><span class="line">        <span class="keyword">int</span> size=<span class="number">4</span>;</span><br><span class="line">        ExecutorService executorService= Executors.newCachedThreadPool();</span><br><span class="line">        Producer producer1=<span class="keyword">new</span> Producer(vector,size);</span><br><span class="line">        Producer producer2=<span class="keyword">new</span> Producer(vector,size);</span><br><span class="line">        Producer producer3=<span class="keyword">new</span> Producer(vector,size);</span><br><span class="line">        Consumer consumer1=<span class="keyword">new</span> Consumer(vector);</span><br><span class="line">        Consumer consumer2=<span class="keyword">new</span> Consumer(vector);</span><br><span class="line">        Consumer consumer3=<span class="keyword">new</span> Consumer(vector);</span><br><span class="line"></span><br><span class="line">        executorService.execute(producer1);</span><br><span class="line">        executorService.execute(producer2);</span><br><span class="line">        executorService.execute(producer3);</span><br><span class="line">        executorService.execute(consumer1);</span><br><span class="line">        executorService.execute(consumer2);</span><br><span class="line">        executorService.execute(consumer3);</span><br><span class="line"></span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        producer1.stop();</span><br><span class="line">        producer2.stop();</span><br><span class="line">        producer3.stop();</span><br><span class="line">        Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="输出示例"><a href="#输出示例" class="headerlink" title="输出示例"></a>输出示例</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">start product id= 11</span><br><span class="line">start product id= 12</span><br><span class="line">start product id= 13</span><br><span class="line">start consumer id= 14</span><br><span class="line">start consumer id= 15</span><br><span class="line">start consumer id= 16</span><br><span class="line">Queue is empty: ,consumer 14 is running,size=0</span><br><span class="line">create data:1,size:1</span><br><span class="line">consumer consume data: 1,size: 0</span><br><span class="line">Queue is empty: ,consumer 14 is running,size=0</span><br><span class="line">create data:2,size:1</span><br><span class="line">consumer consume data: 2,size: 0</span><br><span class="line">create data:3,size:1</span><br><span class="line">create data:4,size:2</span><br><span class="line">consumer consume data: 3,size: 1</span><br><span class="line">create data:5,size:2</span><br><span class="line">consumer consume data: 4,size: 1</span><br><span class="line">consumer consume data: 5,size: 0</span><br><span class="line">Queue is empty: ,consumer 15 is running,size=0</span><br><span class="line">Queue is empty: ,consumer 14 is running,size=0</span><br><span class="line">Queue is empty: ,consumer 16 is running,size=0</span><br><span class="line">create data:6,size:1</span><br><span class="line">consumer consume data: 6,size: 0</span><br><span class="line">Queue is empty: ,consumer 14 is running,size=0</span><br><span class="line">Queue is empty: ,consumer 15 is running,size=0</span><br><span class="line">create data:7,size:1</span><br><span class="line">consumer consume data: 7,size: 0</span><br><span class="line">Queue is empty: ,consumer 14 is running,size=0</span><br><span class="line">Queue is empty: ,consumer 15 is running,size=0</span><br><span class="line">create data:8,size:1</span><br><span class="line">consumer consume data: 8,size: 0</span><br><span class="line">Queue is empty: ,consumer 14 is running,size=0</span><br><span class="line">Queue is empty: ,consumer 15 is running,size=0</span><br><span class="line">Queue is empty: ,consumer 16 is running,size=0</span><br></pre></td></tr></tbody></table></figure>
-
+        <h3 id="常量池的划分"><a href="#常量池的划分" class="headerlink" title="常量池的划分"></a>常量池的划分</h3><ul>
+<li>Class 文件常量池</li>
+<li>运行时常量池</li>
+<li>字符串常量池</li>
+</ul>
+<h3 id="Class-文件常量池"><a href="#Class-文件常量池" class="headerlink" title="Class 文件常量池"></a>Class 文件常量池</h3><p>Class 文件常量池指的是编译生成的 class 字节码文件，其结构中有一项是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。</p>
+<h4 id="什么是字面量和符号引用？"><a href="#什么是字面量和符号引用？" class="headerlink" title="什么是字面量和符号引用？"></a>什么是字面量和符号引用？</h4><p><font size="5"><u><strong>字面量</strong></u></font>指<font color="red"><strong>字符串字面量和声明为 final 的（基本数据类型）常量值</strong></font>，这些字符串字面量除了类中所有双引号括起来的字符串(包括方法体内的)，还包括所有用到的类名、方法的名字和这些类与方法的字符串描述、字段(成员变量)的名称和描述符；<font color="red"><strong>方法内的常量值由栈分配，所以并不算是字面量</strong></font>。<br><font size="5"><u><strong>符号引用</strong></u></font>指指向 UTF-8 表中向这些字面量的引用，包括类和接口的全限定名(包括包路径的完整名)、字段的名称和描述符、方法的名称和描述符。只不过是以一组符号来描述所引用的目标，和内存并无关，所以称为符号引用，直接指向内存中某一地址的引用称为直接引用。</p>
+<h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><p>运行时常量池是方法区的一部分，是一块内存区域。Class 文件常量池将在类加载后进入方法区的运行时常量池中存放。</p>
+<p>一个类加载到 JVM 中后对应一个运行时常量池，运行时常量池相对于 Class 文件常量池来说具备动态性，Class 文件常量只是一个静态存储结构，里面的引用都是符号引用。而运行时常量池可以在运行期间将符号引用解析为直接引用。</p>
+<p>运行时常量池就是用来索引和查找字段和方法名称和描述符的。给定任意一个方法或字段的索引，通过这个索引最终可得到该方法或字段所属的类型信息和名称及描述符信息。</p>
+<h3 id="字符串常量池（Interned-Strings）"><a href="#字符串常量池（Interned-Strings）" class="headerlink" title="字符串常量池（Interned Strings）"></a>字符串常量池（Interned Strings）</h3><p>在 JDK1.6（含）之前也是方法区的一部分，并且其中存放的是字符串的对象。<br>在 JDK1.7（含）之后，是在堆内存之中，存储的是字符串对象的引用，字符串实例是在堆中。</p>
+<p>也就是说先在类加载完成，经过验证，准备阶段在堆中生成字符串对象实例，然后将对象实例的引用值存到字符串常量池中。</p>
+<p>字符串常量池是全局的，JVM 中独此一份，即StringTable类，是一个哈希表，因此也称为全局字符串常量池。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -538,7 +542,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/手撕算法/" rel="tag"># 手撕算法</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -551,8 +555,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/30/链表浅谈/" rel="next" title="链表浅谈">
-                <i class="fa fa-chevron-left"></i> 链表浅谈
+              <a href="/2019/09/25/并发编程-基础/" rel="next" title="并发编程-基础">
+                <i class="fa fa-chevron-left"></i> 并发编程-基础
               </a>
             
           </div>
@@ -560,10 +564,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/25/并发编程-基础/" rel="prev" title="并发编程-基础">
-                并发编程-基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -745,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者"><span class="nav-number">1.</span> <span class="nav-text">生产者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消费者"><span class="nav-number">2.</span> <span class="nav-text">消费者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主线程"><span class="nav-number">3.</span> <span class="nav-text">主线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出示例"><span class="nav-number">4.</span> <span class="nav-text">输出示例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常量池的划分"><span class="nav-number">1.</span> <span class="nav-text">常量池的划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-文件常量池"><span class="nav-number">2.</span> <span class="nav-text">Class 文件常量池</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是字面量和符号引用？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是字面量和符号引用？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时常量池"><span class="nav-number">3.</span> <span class="nav-text">运行时常量池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串常量池（Interned-Strings）"><span class="nav-number">4.</span> <span class="nav-text">字符串常量池（Interned Strings）</span></a></li></ol></div>
             
 
           </div>
