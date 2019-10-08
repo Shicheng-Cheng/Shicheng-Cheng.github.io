@@ -3,9 +3,9 @@
   <entry>
     <title><![CDATA[算法思路汇总]]></title>
     <url>%2F2019%2F10%2F08%2F%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%E6%B1%87%E6%80%BB%2F</url>
-    <content type="text"><![CDATA[两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){ while(!stack1.isEmpty()){ stack2.push(stack1.pop()); }} 打印两个有序链表的公共部分注意在判断两个链表的值相同时，要继续遍历链表 1234if(node1.val==node2.val){ node1=node1.next; node2=node2.next;} 单链表和双链表删除倒数第K个节点 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <content type="text"><![CDATA[两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){ while(!stack1.isEmpty()){ stack2.push(stack1.pop()); }} 打印两个有序链表的公共部分注意在判断两个链表的值相同时，要继续遍历链表 1234if(node1.val==node2.val){ node1=node1.next; node2=node2.next;} 单链表和双链表删除倒数第K个节点单链表删除 快慢指针法 可以先让fast指针先走k步，再让fast和slow一起继续遍历，直至fast为空。需要设立虚拟头结点dummyhead 先从头结点开始遍历链表，其中K值保持 K– ，遍历到链表尾部。若K小于0，再进行++K，当K等于0时，移动到的节点是待删除节点的前一个节点。若K=0,则直接返回头结点的下一个节点。 1234567if(K { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
-        <category>算法</category>
+        <category>算法与数据结构</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
