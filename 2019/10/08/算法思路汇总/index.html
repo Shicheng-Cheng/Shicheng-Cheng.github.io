@@ -98,17 +98,18 @@
 
 
 
-  <meta name="description" content="追求精致的coder">
-<meta name="keywords" content="Java,python,deeplearning,博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pluto">
-<meta property="og:url" content="http://yoursite.com/tags/leetcode/index.html">
+  <meta name="description" content="两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){    while(!stack1.isEmpty()){        stack2.push(stack1.pop());    }}">
+<meta name="keywords" content="leetcode,最优解,程序设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法思路汇总">
+<meta property="og:url" content="http://yoursite.com/2019/10/08/算法思路汇总/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="追求精致的coder">
+<meta property="og:description" content="两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){    while(!stack1.isEmpty()){        stack2.push(stack1.pop());    }}">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-08T12:48:45.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pluto">
-<meta name="twitter:description" content="追求精致的coder">
+<meta name="twitter:title" content="算法思路汇总">
+<meta name="twitter:description" content="两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){    while(!stack1.isEmpty()){        stack2.push(stack1.pop());    }}">
 
 
 
@@ -116,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/leetcode/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/08/算法思路汇总/">
 
 
 
@@ -126,7 +127,7 @@
   };
 </script>
 
-  <title>标签: leetcode | Pluto</title>
+  <title>算法思路汇总 | Pluto</title>
   
 
 
@@ -174,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     
    <div class="bg_content">
        <canvas id="canvas"></canvas>
@@ -234,7 +235,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -352,135 +353,239 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>leetcode<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/算法思路汇总/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Magical Cheng">
+      <meta itemprop="description" content="追求精致的coder">
+      <meta itemprop="image" content="/images/title.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pluto">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/10/08/算法思路汇总/" itemprop="url">
-            
-              <span itemprop="name">算法思路汇总</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">算法思路汇总<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/算法思路汇总.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-08T20:40:30+08:00" content="2019-10-08">
-          10-08
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-08 20:40:30 / 修改时间：20:48:45" itemprop="dateCreated datePublished" datetime="2019-10-08T20:40:30+08:00">2019-10-08</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/19/leetcode-最长的斐波那契子序列的长度/" itemprop="url">
-            
-              <span itemprop="name">leetcode:最长的斐波那契子序列的长度</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-19T23:09:48+08:00" content="2019-08-19">
-          08-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h3 id="两个栈组成的队列"><a href="#两个栈组成的队列" class="headerlink" title="两个栈组成的队列"></a>两个栈组成的队列</h3><p>关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(stack2.isEmpty()){</span><br><span class="line">    <span class="keyword">while</span>(!stack1.isEmpty()){</span><br><span class="line">        stack2.push(stack1.pop());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h3 id="打印两个有序链表的公共部分"><a href="#打印两个有序链表的公共部分" class="headerlink" title="打印两个有序链表的公共部分"></a>打印两个有序链表的公共部分</h3><p>注意在判断两个链表的值相同时，要继续遍历链表</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(node1.val==node2.val){</span><br><span class="line">    node1=node1.next;</span><br><span class="line">    node2=node2.next;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/16/leetcode-实现strStr/" itemprop="url">
-            
-              <span itemprop="name">leetcode:实现strStr()</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-16T17:58:09+08:00" content="2019-08-16">
-          08-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+<p>单链表和双链表删除倒数第K个节点</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
 
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/最优解/" rel="tag"># 最优解</a>
+          
+            <a href="/tags/程序设计/" rel="tag"># 程序设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/08/关键字/" rel="next" title="关键字">
+                <i class="fa fa-chevron-left"></i> 关键字
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -500,8 +605,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -626,6 +740,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个栈组成的队列"><span class="nav-number">1.</span> <span class="nav-text">两个栈组成的队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印两个有序链表的公共部分"><span class="nav-number">2.</span> <span class="nav-text">打印两个有序链表的公共部分</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -794,6 +925,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -809,6 +944,8 @@
 
   
 
+
+  
 
 
   
