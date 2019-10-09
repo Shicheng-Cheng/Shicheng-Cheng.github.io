@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加依赖 123456789101112131415		org.springframework.boot		spring-boot-starter-parent		2.1.5.RELEASE		 		org.springframework.boot		spring-bo">
+  <meta name="description" content="用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加spring-boot依赖和模板引擎依赖123456789101112131415		org.springframework.boot		spring-boot-starter-parent		2.1.5.RELEASE		 		org.springframewor">
 <meta name="keywords" content="springboot,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="秒杀模块  (1)">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/秒杀模块-（1-1/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加依赖 123456789101112131415		org.springframework.boot		spring-boot-starter-parent		2.1.5.RELEASE		 		org.springframework.boot		spring-bo">
+<meta property="og:description" content="用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加spring-boot依赖和模板引擎依赖123456789101112131415		org.springframework.boot		spring-boot-starter-parent		2.1.5.RELEASE		 		org.springframewor">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-09T08:14:26.607Z">
+<meta property="og:updated_time" content="2019-10-09T08:42:55.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="秒杀模块  (1)">
-<meta name="twitter:description" content="用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加依赖 123456789101112131415		org.springframework.boot		spring-boot-starter-parent		2.1.5.RELEASE		 		org.springframework.boot		spring-bo">
+<meta name="twitter:description" content="用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加spring-boot依赖和模板引擎依赖123456789101112131415		org.springframework.boot		spring-boot-starter-parent		2.1.5.RELEASE		 		org.springframewor">
 
 
 
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2019-10-09 14:50:12 / 修改时间：16:14:26" itemprop="dateCreated datePublished" datetime="2019-10-09T14:50:12+08:00">2019-10-09</time>
+              <time title="创建时间：2019-10-09 14:50:12 / 修改时间：16:42:55" itemprop="dateCreated datePublished" datetime="2019-10-09T14:50:12+08:00">2019-10-09</time>
             </span>
           
 
@@ -484,17 +484,29 @@
         <p>用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq</p>
 <p>实现分布式session</p>
 <p>秒杀逻辑</p>
-<p>添加依赖</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">parent</span>></span></span><br><span class="line">		<span class="tag"><<span class="name">groupId</span>></span>org.springframework.boot<span class="tag">groupId</span>></span><br><span class="line">		<span class="tag"><<span class="name">artifactId</span>></span>spring-boot-starter-parent<span class="tag">artifactId</span>></span><br><span class="line">		<span class="tag"><<span class="name">version</span>></span>2.1.5.RELEASE<span class="tag">version</span>></span><br><span class="line">		<span class="tag"><<span class="name">relativePath</span>/></span> </span><br><span class="line"><span class="tag">parent</span>></span><br><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">		<span class="tag"><<span class="name">groupId</span>></span>org.springframework.boot<span class="tag">groupId</span>></span><br><span class="line">		<span class="tag"><<span class="name">artifactId</span>></span>spring-boot-starter-web<span class="tag">artifactId</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">groupId</span>></span>org.springframework.boot<span class="tag">groupId</span>></span><br><span class="line">        <span class="tag"><<span class="name">artifactId</span>></span>spring-boot-starter-thymeleaf<span class="tag">artifactId</span>></span><br><span class="line">        <span class="tag"><<span class="name">version</span>></span>2.0.4.RELEASE<span class="tag">version</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加spring-boot依赖和模板引擎依赖"><a href="#添加spring-boot依赖和模板引擎依赖" class="headerlink" title="添加spring-boot依赖和模板引擎依赖"></a>添加spring-boot依赖和模板引擎依赖</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">parent</span>></span></span><br><span class="line">		<span class="tag"><<span class="name">groupId</span>></span>org.springframework.boot<span class="tag">groupId</span>></span><br><span class="line">		<span class="tag"><<span class="name">artifactId</span>></span>spring-boot-starter-parent<span class="tag">artifactId</span>></span><br><span class="line">		<span class="tag"><<span class="name">version</span>></span>2.1.5.RELEASE<span class="tag">version</span>></span><br><span class="line">		<span class="tag"><<span class="name">relativePath</span>/></span> </span><br><span class="line"><span class="tag">parent</span>></span><br><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">		<span class="tag"><<span class="name">groupId</span>></span>org.springframework.boot<span class="tag">groupId</span>></span><br><span class="line">		<span class="tag"><<span class="name">artifactId</span>></span>spring-boot-starter-web<span class="tag">artifactId</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">groupId</span>></span>org.springframework.boot<span class="tag">groupId</span>></span><br><span class="line">        <span class="tag"><<span class="name">artifactId</span>></span>spring-boot-starter-thymeleaf<span class="tag">artifactId</span>></span><br><span class="line">        <span class="tag"><<span class="name">version</span>></span>2.0.4.RELEASE<span class="tag">version</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br></pre></td></tr></tbody></table></figure>
 
 <p>在属性文件中添加关于模板引擎的配置，设置前缀和后缀。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.thymeleaf.prefix=classpath:/templates/</span><br><span class="line">spring.thymeleaf.suffix=.html</span><br></pre></td></tr></tbody></table></figure>
 
-<p>pom.xml中添加Mysql依赖和Druid依赖</p>
+<h3 id="添加Mysql依赖和Druid依赖"><a href="#添加Mysql依赖和Druid依赖" class="headerlink" title="添加Mysql依赖和Druid依赖"></a>添加Mysql依赖和Druid依赖</h3><p>在pom.xml中修改</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">groupId</span>></span>org.mybatis.spring.boot<span class="tag">groupId</span>></span><br><span class="line">    <span class="tag"><<span class="name">artifactId</span>></span>mybatis-spring-boot-starter<span class="tag">artifactId</span>></span><br><span class="line">    <span class="tag"><<span class="name">version</span>></span>1.3.2<span class="tag">version</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br><span class="line"></span><br><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">groupId</span>></span>mysql<span class="tag">groupId</span>></span><br><span class="line">    <span class="tag"><<span class="name">artifactId</span>></span>mysql-connector-java<span class="tag">artifactId</span>></span><br><span class="line">    <span class="tag"><<span class="name">version</span>></span>8.0.13<span class="tag">version</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br><span class="line"></span><br><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">groupId</span>></span>com.alibaba<span class="tag">groupId</span>></span><br><span class="line">    <span class="tag"><<span class="name">artifactId</span>></span>druid<span class="tag">artifactId</span>></span><br><span class="line">    <span class="tag"><<span class="name">version</span>></span>1.1.10<span class="tag">version</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br></pre></td></tr></tbody></table></figure>
 
 <p>属性文件中添加</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mybatis.type-aliases-package=com.hzc.secKill.Domain</span><br><span class="line">//下划线转成xml驼峰命名法</span><br><span class="line">mybatis.configuration.map-underscore-to-camel-case=true</span><br><span class="line">mybatis.configuration.default-fetch-size=100</span><br><span class="line">mybatis.configuration.default-statement-timeout=3000</span><br><span class="line">//配置文件扫描，接口类与xml文件放在一起</span><br><span class="line">mybatis.mapper-locations=classpath:com/hzc/secKill/DAO/*.xml</span><br><span class="line"></span><br><span class="line">//数据库名称为miaosha</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/miaosha?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=xxxx</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDAO</span> </span>{</span><br><span class="line">    <span class="comment">//@Param("id") 作为变量</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from user where id = #{id}"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getById</span><span class="params">(@Param(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="配置redis"><a href="#配置redis" class="headerlink" title="配置redis"></a>配置redis</h3><p>在.conf文件中修改bind 0.0.0.0   因为之后要设置成分布式</p>
+<p>daemonize yes允许后台运行</p>
+<p>requirepass 123456  设置密码</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis-server ./redis.conf</span><br><span class="line">//查看进程</span><br><span class="line">ps -ef | grep redis</span><br><span class="line">redis-cli</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">groupId</span>></span>redis.clients<span class="tag">groupId</span>></span><br><span class="line">    <span class="tag"><<span class="name">artifactId</span>></span>jedis<span class="tag">artifactId</span>></span><br><span class="line">    <span class="tag"><<span class="name">version</span>></span>2.9.0<span class="tag">version</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br><span class="line"></span><br><span class="line"><span class="tag"><<span class="name">dependency</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">groupId</span>></span>com.alibaba<span class="tag">groupId</span>></span><br><span class="line">    <span class="tag"><<span class="name">artifactId</span>></span>fastjson<span class="tag">artifactId</span>></span><br><span class="line">    <span class="tag"><<span class="name">version</span>></span>1.2.47<span class="tag">version</span>></span><br><span class="line"><span class="tag">dependency</span>></span><br></pre></td></tr></tbody></table></figure>
+
+<p>新建redis文件夹，则添加redisconfig.class，使用@<strong>Component</strong>注解进行配置文件的扫描。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"redis"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHost</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> host;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHost</span><span class="params">(String host)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.host = host;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPort</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> port;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPort</span><span class="params">(<span class="keyword">int</span> port)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -559,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/09/IM通信系统     (2)/" rel="next" title="IM通信系统  (2)">
-                <i class="fa fa-chevron-left"></i> IM通信系统  (2)
+              <a href="/2019/10/09/秒杀模块（1）/" rel="next" title="秒杀模块  (1)">
+                <i class="fa fa-chevron-left"></i> 秒杀模块  (1)
               </a>
             
           </div>
@@ -568,10 +580,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/09/秒杀模块（1）/" rel="prev" title="秒杀模块  (1)">
-                秒杀模块  (1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,8 +623,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -751,6 +768,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加spring-boot依赖和模板引擎依赖"><span class="nav-number">1.</span> <span class="nav-text">添加spring-boot依赖和模板引擎依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Mysql依赖和Druid依赖"><span class="nav-number">2.</span> <span class="nav-text">添加Mysql依赖和Druid依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置redis"><span class="nav-number">3.</span> <span class="nav-text">配置redis</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

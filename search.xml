@@ -2,16 +2,8 @@
 <search>
   <entry>
     <title><![CDATA[秒杀模块 (1)]]></title>
-    <url>%2F2019%2F10%2F09%2F%E7%A7%92%E6%9D%80%E6%A8%A1%E5%9D%97%EF%BC%881%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[秒杀模块 (1)]]></title>
     <url>%2F2019%2F10%2F09%2F%E7%A7%92%E6%9D%80%E6%A8%A1%E5%9D%97-%EF%BC%881-1%2F</url>
-    <content type="text"><![CDATA[用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加依赖 123456789101112131415 org.springframework.boot spring-boot-starter-parent 2.1.5.RELEASE org.springframework.boot spring-boot-starter-web org.springframework.boot spring-boot-starter-thymeleaf 2.0.4.RELEASE 在属性文件中添加关于模板引擎的配置，设置前缀和后缀。 12spring.thymeleaf.prefix=classpath:/templates/spring.thymeleaf.suffix=.html pom.xml中添加Mysql依赖和Druid依赖 1234567891011121314151617 org.mybatis.spring.boot mybatis-spring-boot-starter 1.3.2 mysql mysql-connector-java 8.0.13 com.alibaba druid 1.1.10 属性文件中添加 12345678910111213mybatis.type-aliases-package=com.hzc.secKill.Domain//下划线转成xml驼峰命名法mybatis.configuration.map-underscore-to-camel-case=truemybatis.configuration.default-fetch-size=100mybatis.configuration.default-statement-timeout=3000//配置文件扫描，接口类与xml文件放在一起mybatis.mapper-locations=classpath:com/hzc/secKill/DAO/*.xml//数据库名称为miaoshaspring.datasource.url=jdbc:mysql://localhost:3306/miaosha?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=truespring.datasource.username=rootspring.datasource.password=xxxxspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <content type="text"><![CDATA[用到的技术栈，springboot，MyBatis，Redis,Druid,RabbitMq 实现分布式session 秒杀逻辑 添加spring-boot依赖和模板引擎依赖123456789101112131415 org.springframework.boot spring-boot-starter-parent 2.1.5.RELEASE org.springframework.boot spring-boot-starter-web org.springframework.boot spring-boot-starter-thymeleaf 2.0.4.RELEASE 在属性文件中添加关于模板引擎的配置，设置前缀和后缀。 12spring.thymeleaf.prefix=classpath:/templates/spring.thymeleaf.suffix=.html 添加Mysql依赖和Druid依赖在pom.xml中修改 1234567891011121314151617 org.mybatis.spring.boot mybatis-spring-boot-starter 1.3.2 mysql mysql-connector-java 8.0.13 com.alibaba druid 1.1.10 属性文件中添加 12345678910111213mybatis.type-aliases-package=com.hzc.secKill.Domain//下划线转成xml驼峰命名法mybatis.configuration.map-underscore-to-camel-case=truemybatis.configuration.default-fetch-size=100mybatis.configuration.default-statement-timeout=3000//配置文件扫描，接口类与xml文件放在一起mybatis.mapper-locations=classpath:com/hzc/secKill/DAO/*.xml//数据库名称为miaoshaspring.datasource.url=jdbc:mysql://localhost:3306/miaosha?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=truespring.datasource.username=rootspring.datasource.password=xxxxspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver 注意： 12345678@Mapper@Repositorypublic interface UserDAO { //@Param("id") 作为变量 @Select("select * from user where id = #{id}") public User getById(@Param("id") int id);} 配置redis在.conf文件中修改bind 0.0.0.0 因为之后要设置成分布式 daemonize yes允许后台运行 requirepass 123456 设置密码 1234redis-server ./redis.conf//查看进程ps -ef | grep redisredis-cli 1234567891011 redis.clients jedis 2.9.0 com.alibaba fastjson 1.2.47 新建redis文件夹，则添加redisconfig.class，使用@Component注解进行配置文件的扫描。 12345678910111213141516171819202122@Component@ConfigurationProperties(prefix = "redis")public class RedisConfig { private String host; private int port; public String getHost() { return host; } public void setHost(String host) { this.host = host; } public int getPort() { return port; } public void setPort(int port) { this.port = port; }} document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>项目</category>
       </categories>
@@ -19,6 +11,14 @@
         <tag>springboot</tag>
         <tag>redis</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[秒杀模块 (1)]]></title>
+    <url>%2F2019%2F10%2F09%2F%E7%A7%92%E6%9D%80%E6%A8%A1%E5%9D%97%EF%BC%881%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[IM通信系统 (2)]]></title>
