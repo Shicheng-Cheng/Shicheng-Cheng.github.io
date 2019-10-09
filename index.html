@@ -418,7 +418,7 @@
                 
               
 
-              <time title="创建时间：2019-10-09 14:09:32 / 修改时间：14:25:08" itemprop="dateCreated datePublished" datetime="2019-10-09T14:09:32+08:00">2019-10-09</time>
+              <time title="创建时间：2019-10-09 14:09:32 / 修改时间：14:42:00" itemprop="dateCreated datePublished" datetime="2019-10-09T14:09:32+08:00">2019-10-09</time>
             </span>
           
 
@@ -483,7 +483,8 @@
 初始化客户端，设置相应参数，配置线程模型，IO模型以及数据连接读写逻辑
 connect（）方法是异步调用的，借助异步回调机制来实现指数退避重连逻辑
 
-import io.netty.bootstrap.Bootstrap;import io.netty.buffer.ByteBu
+相对于服务端，客户端不需要调用childhandler( )方法，客户端不需要监听新连接的接入。
+import io.netty.
               ...
             </p>
           <!--noindex-->
@@ -594,7 +595,7 @@ import io.netty.bootstrap.Bootstrap;import io.netty.buffer.ByteBu
                 
               
 
-              <time title="创建时间：2019-10-09 13:52:37 / 修改时间：14:19:40" itemprop="dateCreated datePublished" datetime="2019-10-09T13:52:37+08:00">2019-10-09</time>
+              <time title="创建时间：2019-10-09 13:52:37 / 修改时间：14:41:56" itemprop="dateCreated datePublished" datetime="2019-10-09T13:52:37+08:00">2019-10-09</time>
             </span>
           
 
@@ -659,7 +660,8 @@ import io.netty.bootstrap.Bootstrap;import io.netty.buffer.ByteBu
 初始化服务端，设置相应参数，配置线程模型，IO模型以及数据连接读写逻辑
 实现自动绑定端口逻辑
 
-import io.netty.bootstrap.ServerBootstrap;import io.netty.channel.ChannelInitializer;import 
+不仅需要监听本地端口，而且一直与客户端的连接进行交互。有两种类型的channel
+import io.netty.bootstrap.ServerBootstrap;import io
               ...
             </p>
           <!--noindex-->
