@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[容器类]]></title>
+    <url>%2F2019%2F10%2F11%2F%E5%AE%B9%E5%99%A8%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[ArrayList直接用transient修饰数组。 12 transient Object[] elementData; //未设置从成私有属性，为了方便内部类访问 add()123456789101112131415161718192021222324252627282930313233343536373839404142434445public void add(int index, E element) { rangeCheckForAdd(index); ensureCapacityInternal(size + 1); //用来确保数组容量够 System.arraycopy(elementData, index, elementData, index + 1, size - index); elementData[index] = element; size++;}private void ensureExplicitCapacity(int minCapacity) { //记录修改次数 modCount++; // 避免溢出 if (minCapacity - elementData.length > 0) grow(minCapacity);}private void grow(int minCapacity) { int oldCapacity = elementData.length; //容量扩大1.5倍 int newCapacity = oldCapacity + (oldCapacity >> 1); //如果扩大1.5倍还是小，则直接替换成minCapacity if (newCapacity - minCapacity < 0) newCapacity = minCapacity; if (newCapacity - MAX_ARRAY_SIZE > 0) newCapacity = hugeCapacity(minCapacity); //minCapacity通常接近于size，所以这是一个优势: elementData = Arrays.copyOf(elementData, newCapacity);}private void fastRemove(int index) { //记录修改次数 modCount++; //计算需要移动的元素个数 int numMoved = size - index - 1; if (numMoved > 0) System.arraycopy(elementData, index+1, elementData, index, numMoved); //释放引用以便原对象被垃圾回收 elementData[--size] = null; } foreach编译器会把它转换成类似代码 1234Iterator it=intList.iterator();while(it.hasNext()){ sout(it.next());} jdk 1.7中实现 Iterable 接口，接口中要求实现Iterator方法。 1.8中，定义了一个抽象方法。 1public abstract Iterator iterator(); 1234567891011121314151617181920 //迭代器允许调用者使用良好的语义在迭代期间从基础集合中删除元素。代替了枚举接口Enumeration public interface Iterator { boolean hasNext(); E next(); //从基础集合中移除此迭代器返回的最后一个元素(可选操作)。此方法在每次调用{@link #next}时只能调用一次。如果在迭代过程中以调用此方法以外的任何方式修改了底层集合，则迭代器的行为是未指定的。 default void remove() { throw new UnsupportedOperationException("remove"); } //为每个剩余元素执行给定的操作，直到处理完所有元素或操作引发异常。 default void forEachRemaining(Consumer action) { Objects.requireNonNull(action); while (hasNext()) action.accept(next()); }} document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[查缺补漏]]></title>
     <url>%2F2019%2F10%2F09%2F%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%2F</url>
     <content type="text"><![CDATA[surviror的from区可以创建对象吗在eden区创建，对象总在eden区出生，surviror的from区保存当前的幸存对象，to区则为空。 一次GC过程之后 eden区的对象+fron存储的对象 ——>复制到to区 清空eden区的对象+fron存储的对象 颠倒from区和to区的逻辑 线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务 signal 主线程CAS自旋+shutdownnow 设置一个容量为1的countdownlatch，然后countdownlatch返回后直接shutdownnow 用一个对象承载每个子任务的thread，然后一个子任务完成后，处理线程中断 CompletableFuture 的cancel()操作 秒杀扩展JVM（并发导致快速GC） +横向扩展+ 分布式压测 Volatile一个线程在读取使用volatile修饰的变量时，会将该线程中所有使用的变量从主内存中读取。 详细解释：JVM会尽力保证从主内存同步数据，当不加volatile时，看线程情况，会尽力同步主内存的额数据到线程内存中。 volatile修饰数组，其实是数组的地址是线程可见的，实际上数组内元素看上去”线程内可见”，是因为每次获取元素时数组都是从主内存中获取地址信息，再根据index得到元素。 AtomicIntegerArray 和AtomicReference对元素实现了volatile的读写。 sleep会增加同步主内存数据的机会。 当读一个volatile变量时，JMM会把该线程对应的本地内存置为无效，强制走主内存。 高并发场景针对字典树字典树固有的代码块 123456789char[] letter=word.charArray();for(int i=0;i { img.remove(); }); document.body.appendChild(img); });]]></content>
