@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="Staticstatic方法内部的变量是没有线程安全问题的，因为数据运行在栈里，线程是隔离开的。 static修饰的类变量，方法，代码块以及内部类，都属于类成员，不属于实例成员。 对static修饰的类变量，方法，代码块初始化顺序： 父类的静态变量和代码块比子类优先初始化； 其中静态变量和代码块在main方法之前便已经初始化。 在main方法之后父类构造器和子类构造器才开始初始化。 final f">
+  <meta name="description" content="Staticstatic方法内部的变量是没有线程安全问题的，因为数据运行在栈里，线程是隔离开的。 static修饰的类变量，方法，代码块以及内部类，都属于类成员，不属于实例成员。 对static修饰的类变量，方法，代码块初始化顺序： 父类的静态变量和代码块比子类优先初始化； 其中静态变量和代码块在main方法之前便已经初始化。 在main方法之后父类构造器和子类构造器才开始初始化。 注意一种特殊情">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关键字">
 <meta property="og:url" content="http://yoursite.com/2019/10/08/关键字/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="Staticstatic方法内部的变量是没有线程安全问题的，因为数据运行在栈里，线程是隔离开的。 static修饰的类变量，方法，代码块以及内部类，都属于类成员，不属于实例成员。 对static修饰的类变量，方法，代码块初始化顺序： 父类的静态变量和代码块比子类优先初始化； 其中静态变量和代码块在main方法之前便已经初始化。 在main方法之后父类构造器和子类构造器才开始初始化。 final f">
+<meta property="og:description" content="Staticstatic方法内部的变量是没有线程安全问题的，因为数据运行在栈里，线程是隔离开的。 static修饰的类变量，方法，代码块以及内部类，都属于类成员，不属于实例成员。 对static修饰的类变量，方法，代码块初始化顺序： 父类的静态变量和代码块比子类优先初始化； 其中静态变量和代码块在main方法之前便已经初始化。 在main方法之后父类构造器和子类构造器才开始初始化。 注意一种特殊情">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T12:14:30.038Z">
+<meta property="og:updated_time" content="2019-10-09T15:19:36.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关键字">
-<meta name="twitter:description" content="Staticstatic方法内部的变量是没有线程安全问题的，因为数据运行在栈里，线程是隔离开的。 static修饰的类变量，方法，代码块以及内部类，都属于类成员，不属于实例成员。 对static修饰的类变量，方法，代码块初始化顺序： 父类的静态变量和代码块比子类优先初始化； 其中静态变量和代码块在main方法之前便已经初始化。 在main方法之后父类构造器和子类构造器才开始初始化。 final f">
+<meta name="twitter:description" content="Staticstatic方法内部的变量是没有线程安全问题的，因为数据运行在栈里，线程是隔离开的。 static修饰的类变量，方法，代码块以及内部类，都属于类成员，不属于实例成员。 对static修饰的类变量，方法，代码块初始化顺序： 父类的静态变量和代码块比子类优先初始化； 其中静态变量和代码块在main方法之前便已经初始化。 在main方法之后父类构造器和子类构造器才开始初始化。 注意一种特殊情">
 
 
 
@@ -416,13 +416,23 @@
                 
               
 
-              <time title="创建时间：2019-10-08 19:40:10 / 修改时间：20:14:30" itemprop="dateCreated datePublished" datetime="2019-10-08T19:40:10+08:00">2019-10-08</time>
+              <time title="创建时间：2019-10-08 19:40:10" itemprop="dateCreated datePublished" datetime="2019-10-08T19:40:10+08:00">2019-10-08</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-09 23:19:36" itemprop="dateModified" datetime="2019-10-09T23:19:36+08:00">2019-10-09</time>
+              </span>
             
           
 
@@ -487,6 +497,8 @@
 <p>父类的静态变量和代码块比子类优先初始化；</p>
 <p>其中静态变量和代码块在main方法之前便已经初始化。</p>
 <p>在main方法之后父类构造器和子类构造器才开始初始化。</p>
+<p>注意一种特殊情况：</p>
+<p>static修饰对象，注意其构造器内的语句先执行。</p>
 <h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><ul>
 <li><p>final修饰的类，无法继承</p>
 </li>
@@ -645,7 +657,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -721,7 +733,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
