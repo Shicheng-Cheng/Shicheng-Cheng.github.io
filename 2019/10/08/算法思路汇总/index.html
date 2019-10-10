@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){    while(!stack1.isEmpty()){        stack2.push(stack1.pop());    }}">
+  <meta name="description" content="设计getMin操作的栈push()方法：在压入操作时，判断stackMin是否为空，空则压入，如果不为空，与getMin()方法得到的值进行比较，小则压入。 stackData()一直压入。 getMin()方法stackMin()不为空，则直接返回peek()。 pop()方法stackData栈Pop出一个值，和stackMin的peek()值比较，等于则一起弹出，不等于则返回stackDa">
 <meta name="keywords" content="leetcode,最优解,程序设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法思路汇总">
 <meta property="og:url" content="http://yoursite.com/2019/10/08/算法思路汇总/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){    while(!stack1.isEmpty()){        stack2.push(stack1.pop());    }}">
+<meta property="og:description" content="设计getMin操作的栈push()方法：在压入操作时，判断stackMin是否为空，空则压入，如果不为空，与getMin()方法得到的值进行比较，小则压入。 stackData()一直压入。 getMin()方法stackMin()不为空，则直接返回peek()。 pop()方法stackData栈Pop出一个值，和stackMin的peek()值比较，等于则一起弹出，不等于则返回stackDa">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-09T13:14:08.684Z">
+<meta property="og:updated_time" content="2019-10-10T12:21:20.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法思路汇总">
-<meta name="twitter:description" content="两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。 12345if(stack2.isEmpty()){    while(!stack1.isEmpty()){        stack2.push(stack1.pop());    }}">
+<meta name="twitter:description" content="设计getMin操作的栈push()方法：在压入操作时，判断stackMin是否为空，空则压入，如果不为空，与getMin()方法得到的值进行比较，小则压入。 stackData()一直压入。 getMin()方法stackMin()不为空，则直接返回peek()。 pop()方法stackData栈Pop出一个值，和stackMin的peek()值比较，等于则一起弹出，不等于则返回stackDa">
 
 
 
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-09 21:14:08" itemprop="dateModified" datetime="2019-10-09T21:14:08+08:00">2019-10-09</time>
+                <time title="修改时间：2019-10-10 20:21:20" itemprop="dateModified" datetime="2019-10-10T20:21:20+08:00">2019-10-10</time>
               </span>
             
           
@@ -491,9 +491,31 @@
       
 
       
-        <h3 id="两个栈组成的队列"><a href="#两个栈组成的队列" class="headerlink" title="两个栈组成的队列"></a>两个栈组成的队列</h3><p>关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。</p>
+        <h3 id="设计getMin操作的栈"><a href="#设计getMin操作的栈" class="headerlink" title="设计getMin操作的栈"></a>设计getMin操作的栈</h3><h4 id="push-方法："><a href="#push-方法：" class="headerlink" title="push()方法："></a>push()方法：</h4><p>在压入操作时，判断stackMin是否为空，空则压入，如果不为空，与getMin()方法得到的值进行比较，小则压入。</p>
+<p>stackData()一直压入。</p>
+<h4 id="getMin-方法"><a href="#getMin-方法" class="headerlink" title="getMin()方法"></a>getMin()方法</h4><p>stackMin()不为空，则直接返回peek()。</p>
+<h4 id="pop-方法"><a href="#pop-方法" class="headerlink" title="pop()方法"></a>pop()方法</h4><p>stackData栈Pop出一个值，和stackMin的peek()值比较，等于则一起弹出，不等于则返回stackData栈Pop出的值。</p>
+<h3 id="两个栈组成的队列"><a href="#两个栈组成的队列" class="headerlink" title="两个栈组成的队列"></a>两个栈组成的队列</h3><p>关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(stack2.isEmpty()){</span><br><span class="line">    <span class="keyword">while</span>(!stack1.isEmpty()){</span><br><span class="line">        stack2.push(stack1.pop());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
+<h3 id="递归操作逆序一个栈"><a href="#递归操作逆序一个栈" class="headerlink" title="递归操作逆序一个栈"></a>递归操作逆序一个栈</h3><p>先将栈stack的栈底元素返回并移除,然后依次再压入</p>
+<p>在将栈的栈底元素返回并移除时，其中return result,最终的出栈元素被返回，没能被压入栈，此时的return更像是递归到底之后再向上回溯的过程。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(stack.isEmpty()){</span><br><span class="line">    return result;</span><br><span class="line">}else{</span><br><span class="line">    int last=递归调用;</span><br><span class="line">    stack.push(result);</span><br><span class="line">    return last;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="一个栈实现实现另一个栈的逆序"><a href="#一个栈实现实现另一个栈的逆序" class="headerlink" title="一个栈实现实现另一个栈的逆序"></a>一个栈实现实现另一个栈的逆序</h3><p>其中如果是按照从顶到底的顺序是从大到小的顺序，可以先申请一个辅助栈，栈底是最大的元素，如果要放入的元素比辅助栈栈顶的元素大，就把辅助栈元素依次弹出，直到放入的元素此时小于栈顶元素，将元素压入。</p>
+<p>最后再将元素从辅助栈中弹出，再压入到原来的栈。</p>
+<h3 id="生成窗口最大值数组"><a href="#生成窗口最大值数组" class="headerlink" title="生成窗口最大值数组"></a>生成窗口最大值数组</h3><p>使用双端队列，遍历数组元素，如果队列不为空，且队列的末尾元素小于当前数组的值，则依次弹出队列的末尾元素，直至末尾元素大于数组值。记录数组元素的索引值，当队列头部的值==数组当前索引 - 窗口当前大小时，将队列头部的值弹出。</p>
+<p>当数组当前索引 >= 窗口当前大小-1时，则将这些窗口最大值记录下来，即当前队列的头部元素的值。</p>
+<h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><h4 id="什么是单调栈？"><a href="#什么是单调栈？" class="headerlink" title="什么是单调栈？"></a>什么是单调栈？</h4><p>单调栈分为单调递增栈和单调递减栈，单调递增栈即栈内元素保持单调递增的栈，同理单调递减栈即栈内元素保持单调递减的栈，跟单调队列差不多，但是只用到它的一端。</p>
+<h4 id="单调递增栈"><a href="#单调递增栈" class="headerlink" title="单调递增栈"></a>单调递增栈</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < T.size(); i++){</span><br><span class="line">  <span class="keyword">while</span>(! stk.empty() && stk.top() > T[i]){</span><br><span class="line">    stk.pop();</span><br><span class="line">  }</span><br><span class="line">  stk.push(A[i]);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="单调递减栈"><a href="#单调递减栈" class="headerlink" title="单调递减栈"></a>单调递减栈</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = T.size() - <span class="number">1</span>; i >= <span class="number">0</span>; i--){</span><br><span class="line">  <span class="keyword">while</span>(! stk.empty() && T[i] >= stk.top()){</span><br><span class="line">    stk.pop();</span><br><span class="line">  }         </span><br><span class="line">  stk.push(i);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="单调栈的作用："><a href="#单调栈的作用：" class="headerlink" title="单调栈的作用："></a><strong>单调栈的作用：</strong></h4><p>可以以 O(1) 的时间复杂度得知某个位置左右两侧比他大（或小）的数的位置，当你需要高效率获取某个位置左右两侧比他大（或小）的数的位置的的时候就可以用到单调栈。</p>
+<p>求解数组中元素右边第一个比它小的元素的下标，从前往后，构造单调递增栈；</p>
+<p>求解数组中元素右边第一个比它大的元素的下标，从前往后，构造单调递减栈；</p>
+<p>求解数组中元素左边第一个比它小的元素的下标，从后往前，构造单调递减栈；</p>
+<p>求解数组中元素左边第一个比它小的元素的下标，从后往前，构造单调递增栈。</p>
 <h3 id="打印两个有序链表的公共部分"><a href="#打印两个有序链表的公共部分" class="headerlink" title="打印两个有序链表的公共部分"></a>打印两个有序链表的公共部分</h3><p>注意在判断两个链表的值相同时，要继续遍历链表</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(node1.val==node2.val){</span><br><span class="line">    node1=node1.next;</span><br><span class="line">    node2=node2.next;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
@@ -802,7 +824,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个栈组成的队列"><span class="nav-number">1.</span> <span class="nav-text">两个栈组成的队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印两个有序链表的公共部分"><span class="nav-number">2.</span> <span class="nav-text">打印两个有序链表的公共部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表和双链表删除倒数第K个节点"><span class="nav-number">3.</span> <span class="nav-text">单链表和双链表删除倒数第K个节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单链表删除"><span class="nav-number">3.1.</span> <span class="nav-text">单链表删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双链表删除"><span class="nav-number">3.2.</span> <span class="nav-text">双链表删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前序、中序、后序遍历"><span class="nav-number">4.</span> <span class="nav-text">前序、中序、后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先序非递归版本"><span class="nav-number">4.1.</span> <span class="nav-text">先序非递归版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中序非递归版本"><span class="nav-number">4.2.</span> <span class="nav-text">中序非递归版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">5.</span> <span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#93-复原IP地址"><span class="nav-number">5.1.</span> <span class="nav-text">93 复原IP地址</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计getMin操作的栈"><span class="nav-number">1.</span> <span class="nav-text">设计getMin操作的栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#push-方法："><span class="nav-number">1.1.</span> <span class="nav-text">push()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getMin-方法"><span class="nav-number">1.2.</span> <span class="nav-text">getMin()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pop-方法"><span class="nav-number">1.3.</span> <span class="nav-text">pop()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个栈组成的队列"><span class="nav-number">2.</span> <span class="nav-text">两个栈组成的队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归操作逆序一个栈"><span class="nav-number">3.</span> <span class="nav-text">递归操作逆序一个栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个栈实现实现另一个栈的逆序"><span class="nav-number">4.</span> <span class="nav-text">一个栈实现实现另一个栈的逆序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成窗口最大值数组"><span class="nav-number">5.</span> <span class="nav-text">生成窗口最大值数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单调栈"><span class="nav-number">6.</span> <span class="nav-text">单调栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是单调栈？"><span class="nav-number">6.1.</span> <span class="nav-text">什么是单调栈？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单调递增栈"><span class="nav-number">6.2.</span> <span class="nav-text">单调递增栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单调递减栈"><span class="nav-number">6.3.</span> <span class="nav-text">单调递减栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单调栈的作用："><span class="nav-number">6.4.</span> <span class="nav-text">单调栈的作用：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印两个有序链表的公共部分"><span class="nav-number">7.</span> <span class="nav-text">打印两个有序链表的公共部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表和双链表删除倒数第K个节点"><span class="nav-number">8.</span> <span class="nav-text">单链表和双链表删除倒数第K个节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单链表删除"><span class="nav-number">8.1.</span> <span class="nav-text">单链表删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双链表删除"><span class="nav-number">8.2.</span> <span class="nav-text">双链表删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前序、中序、后序遍历"><span class="nav-number">9.</span> <span class="nav-text">前序、中序、后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先序非递归版本"><span class="nav-number">9.1.</span> <span class="nav-text">先序非递归版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中序非递归版本"><span class="nav-number">9.2.</span> <span class="nav-text">中序非递归版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">10.</span> <span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#93-复原IP地址"><span class="nav-number">10.1.</span> <span class="nav-text">93 复原IP地址</span></a></li></ol></li></ol></div>
             
 
           </div>

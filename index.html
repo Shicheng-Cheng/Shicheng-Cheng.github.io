@@ -1343,7 +1343,7 @@ import io.netty.bootstrap.ServerBootstrap;import io
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-09 21:14:08" itemprop="dateModified" datetime="2019-10-09T21:14:08+08:00">2019-10-09</time>
+                <time title="修改时间：2019-10-10 20:21:20" itemprop="dateModified" datetime="2019-10-10T20:21:20+08:00">2019-10-10</time>
               </span>
             
           
@@ -1398,8 +1398,10 @@ import io.netty.bootstrap.ServerBootstrap;import io
         
           
             <p>
-              两个栈组成的队列关键在于一个栈作为压入栈，记为stack1，一个栈作为弹出栈，记为stack2，每次需要先判断stack2是否为空，只有当stack2为空时，才能将stack1中的所有元素压入stack2中。
-if(stack2.isEmpty()){    while(!stack1.isEmpt
+              设计getMin操作的栈push()方法：在压入操作时，判断stackMin是否为空，空则压入，如果不为空，与getMin()方法得到的值进行比较，小则压入。
+stackData()一直压入。
+getMin()方法stackMin()不为空，则直接返回peek()。
+pop()方法stackData
               ...
             </p>
           <!--noindex-->
