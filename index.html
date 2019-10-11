@@ -418,7 +418,7 @@
                 
               
 
-              <time title="创建时间：2019-10-11 00:01:07 / 修改时间：00:39:14" itemprop="dateCreated datePublished" datetime="2019-10-11T00:01:07+08:00">2019-10-11</time>
+              <time title="创建时间：2019-10-11 00:01:07 / 修改时间：01:03:08" itemprop="dateCreated datePublished" datetime="2019-10-11T00:01:07+08:00">2019-10-11</time>
             </span>
           
 
@@ -607,7 +607,7 @@ add()public void add(int index, E element) {    rangeCheckForAdd(in
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-10 23:53:28" itemprop="dateModified" datetime="2019-10-10T23:53:28+08:00">2019-10-10</time>
+                <time title="修改时间：2019-10-11 13:24:19" itemprop="dateModified" datetime="2019-10-11T13:24:19+08:00">2019-10-11</time>
               </span>
             
           
@@ -662,13 +662,7 @@ add()public void add(int index, E element) {    rangeCheckForAdd(in
         
           
             <p>
-              surviror的from区可以创建对象吗在eden区创建，对象总在eden区出生，surviror的from区保存当前的幸存对象，to区则为空。
-一次GC过程之后
-
-eden区的对象+fron存储的对象  ——>复制到to区
-清空eden区的对象+fron存储的对象
-颠倒from区和to区的逻辑
-
+              为什么需要两个survivor区先来看一张图，假设没有Survivor区，Eden区每进行一次Minor GC，存活的对象就会被送到老年代。老年代很快被填满，触发Major GC（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）。老年代的内存空间远大于新生代，进行一次
               ...
             </p>
           <!--noindex-->
@@ -1871,13 +1865,23 @@ static修饰的类变量，方法，代码块以及内部类，都属于类成�
                 
               
 
-              <time title="创建时间：2019-10-08 18:05:22 / 修改时间：20:18:06" itemprop="dateCreated datePublished" datetime="2019-10-08T18:05:22+08:00">2019-10-08</time>
+              <time title="创建时间：2019-10-08 18:05:22" itemprop="dateCreated datePublished" datetime="2019-10-08T18:05:22+08:00">2019-10-08</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-11 13:16:58" itemprop="dateModified" datetime="2019-10-11T13:16:58+08:00">2019-10-11</time>
+              </span>
             
           
 

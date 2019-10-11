@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="Pluto">
 <meta property="og:description" content="String1234public final class String implements java.io.Serializable, Comparable, CharSequence {    /** The value is used for character storage. */    private final char value[];}  String 不可变的原因  Strin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T12:18:06.549Z">
+<meta property="og:updated_time" content="2019-10-11T05:16:58.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="源码系列">
 <meta name="twitter:description" content="String1234public final class String implements java.io.Serializable, Comparable, CharSequence {    /** The value is used for character storage. */    private final char value[];}  String 不可变的原因  Strin">
@@ -416,13 +416,23 @@
                 
               
 
-              <time title="创建时间：2019-10-08 18:05:22 / 修改时间：20:18:06" itemprop="dateCreated datePublished" datetime="2019-10-08T18:05:22+08:00">2019-10-08</time>
+              <time title="创建时间：2019-10-08 18:05:22" itemprop="dateCreated datePublished" datetime="2019-10-08T18:05:22+08:00">2019-10-08</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-11 13:16:58" itemprop="dateModified" datetime="2019-10-11T13:16:58+08:00">2019-10-11</time>
+              </span>
             
           
 
@@ -501,7 +511,12 @@
 
 <h4 id="重写equals方法"><a href="#重写equals方法" class="headerlink" title="重写equals方法"></a>重写equals方法</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>{</span><br><span class="line">    <span class="comment">//先判断内存地址是否相同</span></span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) {</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       }</span><br><span class="line">    <span class="comment">//判断比较的对象是否是String类型</span></span><br><span class="line">       <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) {</span><br><span class="line">           String anotherString = (String)anObject;</span><br><span class="line">           <span class="keyword">int</span> n = value.length;</span><br><span class="line">           <span class="keyword">if</span> (n == anotherString.value.length) {</span><br><span class="line">               <span class="keyword">char</span> v1[] = value;</span><br><span class="line">               <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">               <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">               <span class="keyword">while</span> (n-- != <span class="number">0</span>) {</span><br><span class="line">                   <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                   i++;</span><br><span class="line">               }</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="Long"><a href="#Long" class="headerlink" title="Long"></a>Long</h3><h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>内部实现了一种缓存机制，缓存了从-128到127内的所有long值。</p>
+<h3 id="Long"><a href="#Long" class="headerlink" title="Long"></a>Long</h3><p>byte  1字节</p>
+<p>short 2字节</p>
+<p>int 4字节</p>
+<p>long 8字节</p>
+<p><strong>switch中不能使用long型数据，因为跳转表值的存储空间一般为32位，很难容纳下long。而String可以通过hashcode()方法转换为整数。</strong></p>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>内部实现了一种缓存机制，缓存了从-128到127内的所有long值。</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">LongCache</span> </span>{</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">LongCache</span><span class="params">()</span></span>{}</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> Long cache[] = <span class="keyword">new</span> Long[-(-<span class="number">128</span>) + <span class="number">127</span> + <span class="number">1</span>];</span><br><span class="line"><span class="comment">//当容器初始化时，static修饰的代码块自动进行随之加载</span></span><br><span class="line">        <span class="keyword">static</span> {</span><br><span class="line">            <span class="comment">//缓存long值。</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < cache.length; i++)</span><br><span class="line">                cache[i] = <span class="keyword">new</span> Long(i - <span class="number">128</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><h4 id="通用特征"><a href="#通用特征" class="headerlink" title="通用特征"></a>通用特征</h4><ul>
