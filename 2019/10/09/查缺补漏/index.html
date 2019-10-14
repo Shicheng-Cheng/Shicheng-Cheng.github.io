@@ -98,20 +98,20 @@
 
 
 
-  <meta name="description" content="为什么需要两个survivor区先来看一张图，假设没有Survivor区，Eden区每进行一次Minor GC，存活的对象就会被送到老年代。老年代很快被填满，触发Major GC（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）。老年代的内存空间远大于新生代，进行一次Full GC消耗的时间比Minor GC长得多。频发的Full GC消耗的时间是非常可观的，这一点">
+  <meta name="description" content="java基础 异或( ^ ):  相同则false , 不同则 true。  短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。  对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。  按位与 &amp;：都是 1 才是 1。  按位或  |：只要有 1 ，则为 1 。  getBytes( String   str">
 <meta name="keywords" content="java,虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查缺补漏">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/查缺补漏/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="为什么需要两个survivor区先来看一张图，假设没有Survivor区，Eden区每进行一次Minor GC，存活的对象就会被送到老年代。老年代很快被填满，触发Major GC（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）。老年代的内存空间远大于新生代，进行一次Full GC消耗的时间比Minor GC长得多。频发的Full GC消耗的时间是非常可观的，这一点">
+<meta property="og:description" content="java基础 异或( ^ ):  相同则false , 不同则 true。  短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。  对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。  按位与 &amp;：都是 1 才是 1。  按位或  |：只要有 1 ，则为 1 。  getBytes( String   str">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="c:%5CUsers%5CDell%5CDesktop%5Cjava%E7%AC%94%E8%AE%B0%5C%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%5C26.jpg">
-<meta property="og:updated_time" content="2019-10-11T05:24:19.427Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/查缺补漏/26.jpg">
+<meta property="og:updated_time" content="2019-10-13T04:08:29.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查缺补漏">
-<meta name="twitter:description" content="为什么需要两个survivor区先来看一张图，假设没有Survivor区，Eden区每进行一次Minor GC，存活的对象就会被送到老年代。老年代很快被填满，触发Major GC（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）。老年代的内存空间远大于新生代，进行一次Full GC消耗的时间比Minor GC长得多。频发的Full GC消耗的时间是非常可观的，这一点">
-<meta name="twitter:image" content="c:%5CUsers%5CDell%5CDesktop%5Cjava%E7%AC%94%E8%AE%B0%5C%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%5C26.jpg">
+<meta name="twitter:description" content="java基础 异或( ^ ):  相同则false , 不同则 true。  短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。  对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。  按位与 &amp;：都是 1 才是 1。  按位或  |：只要有 1 ，则为 1 。  getBytes( String   str">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/09/查缺补漏/26.jpg">
 
 
 
@@ -433,7 +433,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-11 13:24:19" itemprop="dateModified" datetime="2019-10-11T13:24:19+08:00">2019-10-11</time>
+                <time title="修改时间：2019-10-13 12:08:29" itemprop="dateModified" datetime="2019-10-13T12:08:29+08:00">2019-10-13</time>
               </span>
             
           
@@ -493,13 +493,38 @@
       
 
       
-        <h3 id="为什么需要两个survivor区"><a href="#为什么需要两个survivor区" class="headerlink" title="为什么需要两个survivor区"></a>为什么需要两个survivor区</h3><p>先来看一张图，假设没有Survivor区，Eden区每进行一次Minor GC，存活的对象就会被送到老年代。老年代很快被填满，触发Major GC（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）。老年代的内存空间远大于新生代，进行一次Full GC消耗的时间比Minor GC长得多。频发的Full GC消耗的时间是非常可观的，这一点会影响大型程序的执行和响应速度，更不要说某些连接会因为超时发生连接错误了。</p>
-<p><img src="C:%5CUsers%5CDell%5CDesktop%5Cjava%E7%AC%94%E8%AE%B0%5C%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%5C26.jpg" alt="26"></p>
+        <h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><ul>
+<li><p>异或( ^ ):  相同则false , 不同则 true。</p>
+</li>
+<li><p>短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。</p>
+</li>
+<li><p>对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。</p>
+</li>
+<li><p>按位与 &：都是 1 才是 1。</p>
+</li>
+<li><p>按位或  |：只要有 1 ，则为 1 。</p>
+</li>
+<li><p>getBytes( String   str  )  ： 获取字符串的二进制形式。</p>
+</li>
+<li><p>Arrays的方法：</p>
+<ul>
+<li>int   binarySearch(  long [ ]  a,long  key)  查找一个数</li>
+<li>int[  ]  copyOf(  int  [  ], int length)   数组复制</li>
+</ul>
+</li>
+<li><p>引用型变量存储在栈上， 保存的是实际内容的地址，而实际内容保存在堆山。</p>
+</li>
+<li><p>静态导入：  static import   直接导入静态方法和成员</p>
+</li>
+</ul>
+<h3 id="为什么需要两个survivor区"><a href="#为什么需要两个survivor区" class="headerlink" title="为什么需要两个survivor区"></a>为什么需要两个survivor区</h3><p>先来看一张图，假设没有Survivor区，Eden区每进行一次Minor GC，存活的对象就会被送到老年代。老年代很快被填满，触发Major GC（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）。老年代的内存空间远大于新生代，进行一次Full GC消耗的时间比Minor GC长得多。频发的Full GC消耗的时间是非常可观的，这一点会影响大型程序的执行和响应速度，更不要说某些连接会因为超时发生连接错误了。</p>
+<p><img src="/2019/10/09/查缺补漏/26.jpg" alt="26"></p>
 <ul>
 <li><strong>Survivor的存在意义，就是减少被送到老年代的对象，进而减少Full GC的发生，Survivor的预筛选保证，只有经历16次Minor GC还能在新生代中存活的对象，才会被送到老年代。</strong></li>
-<li><strong>假设只设置一个刚刚新建的对象在Eden中，一旦Eden满了，触发一次Minor GC，Eden中的存活对象就会被移动到Survivor区。这样继续循环下去，下一次Eden满了的时候，问题来了，此时进行Minor GC，Eden和Survivor各有一些存活对象，如果此时把Eden区的存活对象硬放到Survivor区，很明显这两部分对象所占有的内存是不连续的，也就导致了内存碎片化。</strong></li>
+<li><strong>假设只设置一个Survivor区，当刚刚新建的对象在Eden中，一旦Eden满了，触发一次Minor GC，Eden中的存活对象就会被移动到Survivor区。这样继续循环下去，下一次Eden满了的时候，问题来了，此时进行Minor GC，Eden和Survivor各有一些存活对象，如果此时把Eden区的存活对象硬放到Survivor区，很明显这两部分对象所占有的内存是不连续的，也就导致了内存碎片化。堆空间被散布的对象占据不连续的内存，最直接的结果就是，堆中没有足够大的连续内存空间，接下去如果程序需要给一个内存需求很大的对象分配内存</strong></li>
+<li><strong>设置两个Survivor区上述机制最大的好处就是，整个过程中，永远有一个survivor space是空的，另一个非空的survivor space无碎片</strong>。</li>
+<li><strong>至于Survivor不分更多的区域，显然，若Survivor区再细分下去，每一块的空间就会比较小，很容易导致Survivor区满，两块Survivor区应该是经过权衡之后的最佳方案。</strong></li>
 </ul>
-<p>### </p>
 <h3 id="surviror的from区可以创建对象吗"><a href="#surviror的from区可以创建对象吗" class="headerlink" title="surviror的from区可以创建对象吗"></a>surviror的from区可以创建对象吗</h3><p>在eden区创建，对象总在eden区出生，surviror的from区保存当前的幸存对象，to区则为空。</p>
 <p>一次GC过程之后</p>
 <ul>
@@ -541,13 +566,39 @@
 <li>JDK8之后接口有default方法，可以被实现</li>
 </ul>
 <h3 id="java和C-区别"><a href="#java和C-区别" class="headerlink" title="java和C++区别"></a>java和C++区别</h3><ul>
-<li><p>java中不提供指针</p>
+<li>java中不提供指针</li>
+<li>C++的类可以多继承</li>
+<li>java有内存自动管理机制</li>
+</ul>
+<h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><p>路由器是实现分组交换的关键构件，其任务是转发收到的分组，这是网络核心部分最重要的功能。分组交换采用存储转发技术，表示把一个报文（要发送的整块数据）分为几个分组后再进行传送。在发送报文之前，先把较长的报文划分成为一个个更小的等长数据段。在每个数据端的前面加上一些由必要的控制信息组成的首部后，就构成了一个分组。分组又称为包。分组是在互联网中传送的数据单元，正是由于分组的头部包含了诸如目的地址和源地址等重要控制信息，每一个分组才能在互联网中独立的选择传输路径，并正确地交付到分组传输的终点。</p>
+<h3 id="mysql中limit分页如何保证可靠性"><a href="#mysql中limit分页如何保证可靠性" class="headerlink" title="mysql中limit分页如何保证可靠性"></a>mysql中limit分页如何保证可靠性</h3><h3 id="如何监听tcp丢包的问题"><a href="#如何监听tcp丢包的问题" class="headerlink" title="如何监听tcp丢包的问题"></a>如何监听tcp丢包的问题</h3><h3 id="http是否需要多次建立tcp连接"><a href="#http是否需要多次建立tcp连接" class="headerlink" title="http是否需要多次建立tcp连接"></a>http是否需要多次建立tcp连接</h3><p><a href="https://blog.csdn.net/huangyuhuangyu/article/details/78220005" target="_blank" rel="noopener">关于tcp连接</a></p>
+<p>HTTP1.0协议不支持长连接，从HTTP1.1协议以后，连接默认都是长连接。</p>
+<p>HTTP协议是<strong>基于请求/响应模式</strong>的，因此只要服务端给了响应，本次HTTP连接就结束了，或者更准确的说，是本次HTTP请求就结束了，下一次又是一个新的请求和新的响应，因此根本没有长连接这一说。那么自然也就没有短连接这一说了。</p>
+<p>网络上说HTTP分为长连接和短连接，实际指的是TCP连接。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接这一说。</p>
+<h4 id="如何理解HTTP协议是无状态的"><a href="#如何理解HTTP协议是无状态的" class="headerlink" title="如何理解HTTP协议是无状态的"></a>如何理解HTTP协议是无状态的</h4><p>HTTP协议是无状态的，指的是协议对于事务处理没有记忆能力，服务器不知道客户端是什么状态。也就是说，打开一个服务器上的网页和你之前打开这个服务器上的网页之间没有任何联系。HTTP是一个无状态的面向连接的协议，无状态不代表HTTP不能保持TCP连接，更不能代表HTTP使用的是UDP协议（无连接）。</p>
+<h4 id="长连接、短连接"><a href="#长连接、短连接" class="headerlink" title="长连接、短连接"></a><strong>长连接、短连接</strong></h4><p>从 HTTP/1.1起，默认使用长连接，用以保持连接特性。使用长连接的HTTP协议，会在响应头有加入这行代码： <strong>Connection:keep-alive</strong> 服务器和客户端都要设置</p>
+<p>短连接一般只会在  client/server间传递一次读写操作。</p>
+<p>短连接的操作步骤是：建立连接——数据传输——关闭连接…建立连接——数据传输——关闭连接。</p>
+<h3 id="ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？"><a href="#ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？" class="headerlink" title="ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？"></a>ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？</h3><h4 id="常见的场景就是："><a href="#常见的场景就是：" class="headerlink" title="常见的场景就是："></a>常见的场景就是：</h4><ul>
+<li><p>调用class的forName方法时，找不到指定的类</p>
 </li>
-<li><p>C++的类可以多继承</p>
+<li><p>ClassLoader 中的 findSystemClass() 方法时，找不到指定的类</p>
 </li>
-<li><p>java有内存自动管理机制</p>
+<li><p>ClassLoader 中的 loadClass() 方法时，找不到指定的类</p>
 </li>
 </ul>
+<h4 id="造成异常的常见原因："><a href="#造成异常的常见原因：" class="headerlink" title="造成异常的常见原因："></a>造成异常的常见原因：</h4><ul>
+<li><p>所需要的支持类库放错了地方，并没有放在类路径(CLASSPATH环境变量)里面。</p>
+</li>
+<li><p>使用了重复的类库，且版本不一致。导致低版本的被优先使用。</p>
+</li>
+<li><p>类名错了，一般是使用Class.forName的时候，手工指定了类名的情况。</p>
+</li>
+<li><p>没有导入纯JAVA驱动包。</p>
+</li>
+</ul>
+<h3 id="NoSuchMethodException遇到过吗？"><a href="#NoSuchMethodException遇到过吗？" class="headerlink" title="NoSuchMethodException遇到过吗？"></a>NoSuchMethodException遇到过吗？</h3><p>反射时候会出现，查了下Class的文档，该类下原来有两个方法:getMethod,getDeclaredMethod。<strong>getMethod</strong>只能调用public声明的方法</p>
+<p><strong>getDeclaredMethod</strong>基本可以调用任何类型声明的方法</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -694,7 +745,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -829,7 +880,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要两个survivor区"><span class="nav-number">1.</span> <span class="nav-text">为什么需要两个survivor区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#surviror的from区可以创建对象吗"><span class="nav-number">2.</span> <span class="nav-text">surviror的from区可以创建对象吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务"><span class="nav-number">3.</span> <span class="nav-text">线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#秒杀扩展"><span class="nav-number">4.</span> <span class="nav-text">秒杀扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volatile"><span class="nav-number">5.</span> <span class="nav-text">Volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高并发场景针对字典树"><span class="nav-number">6.</span> <span class="nav-text">高并发场景针对字典树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构成重载的条件"><span class="nav-number">7.</span> <span class="nav-text">构成重载的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类与接口"><span class="nav-number">8.</span> <span class="nav-text">抽象类与接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java和C-区别"><span class="nav-number">9.</span> <span class="nav-text">java和C++区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java基础"><span class="nav-number">1.</span> <span class="nav-text">java基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要两个survivor区"><span class="nav-number">2.</span> <span class="nav-text">为什么需要两个survivor区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#surviror的from区可以创建对象吗"><span class="nav-number">3.</span> <span class="nav-text">surviror的from区可以创建对象吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务"><span class="nav-number">4.</span> <span class="nav-text">线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#秒杀扩展"><span class="nav-number">5.</span> <span class="nav-text">秒杀扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volatile"><span class="nav-number">6.</span> <span class="nav-text">Volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高并发场景针对字典树"><span class="nav-number">7.</span> <span class="nav-text">高并发场景针对字典树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构成重载的条件"><span class="nav-number">8.</span> <span class="nav-text">构成重载的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类与接口"><span class="nav-number">9.</span> <span class="nav-text">抽象类与接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java和C-区别"><span class="nav-number">10.</span> <span class="nav-text">java和C++区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器"><span class="nav-number">11.</span> <span class="nav-text">路由器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql中limit分页如何保证可靠性"><span class="nav-number">12.</span> <span class="nav-text">mysql中limit分页如何保证可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何监听tcp丢包的问题"><span class="nav-number">13.</span> <span class="nav-text">如何监听tcp丢包的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http是否需要多次建立tcp连接"><span class="nav-number">14.</span> <span class="nav-text">http是否需要多次建立tcp连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何理解HTTP协议是无状态的"><span class="nav-number">14.1.</span> <span class="nav-text">如何理解HTTP协议是无状态的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#长连接、短连接"><span class="nav-number">14.2.</span> <span class="nav-text">长连接、短连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？"><span class="nav-number">15.</span> <span class="nav-text">ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的场景就是："><span class="nav-number">15.1.</span> <span class="nav-text">常见的场景就是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#造成异常的常见原因："><span class="nav-number">15.2.</span> <span class="nav-text">造成异常的常见原因：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSuchMethodException遇到过吗？"><span class="nav-number">16.</span> <span class="nav-text">NoSuchMethodException遇到过吗？</span></a></li></ol></div>
             
 
           </div>
