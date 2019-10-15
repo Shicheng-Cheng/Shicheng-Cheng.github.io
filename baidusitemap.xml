@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/2019/10/11/%E5%AE%B9%E5%99%A8%E7%B1%BB/</loc>
-    <lastmod>2019-10-14</lastmod>
+    <loc>http://yoursite.com/2019/09/25/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2019-10-15</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/09/%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/</loc>
-    <lastmod>2019-10-13</lastmod>
+    <lastmod>2019-10-15</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/10/11/%E5%AE%B9%E5%99%A8%E7%B1%BB/</loc>
+    <lastmod>2019-10-14</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/11/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
     <lastmod>2019-10-11</lastmod>
@@ -32,9 +35,6 @@
     <lastmod>2019-10-09</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</loc>
-    <lastmod>2019-10-08</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/09/25/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2019-10-08</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/09/28/java%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F%E6%B1%A0%E7%A7%8D%E7%A7%8D/</loc>

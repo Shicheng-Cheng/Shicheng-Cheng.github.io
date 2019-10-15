@@ -98,19 +98,19 @@
 
 
 
-  <meta name="description" content="java基础 异或( ^ ):  相同则false , 不同则 true。  短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。  对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。  按位与 &amp;：都是 1 才是 1。  按位或  |：只要有 1 ，则为 1 。  getBytes( String   str">
+  <meta name="description" content="java基础 异或( ^ ):  相同则false , 不同则 true。 短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。 对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。 按位与 &amp;：都是 1 才是 1。 应用场景：获取网段值，IP地址与掩码255.255.255.0进行按位与（&amp;）运算得到高24位，即为">
 <meta name="keywords" content="java,虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查缺补漏">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/查缺补漏/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="java基础 异或( ^ ):  相同则false , 不同则 true。  短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。  对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。  按位与 &amp;：都是 1 才是 1。  按位或  |：只要有 1 ，则为 1 。  getBytes( String   str">
+<meta property="og:description" content="java基础 异或( ^ ):  相同则false , 不同则 true。 短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。 对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。 按位与 &amp;：都是 1 才是 1。 应用场景：获取网段值，IP地址与掩码255.255.255.0进行按位与（&amp;）运算得到高24位，即为">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/10/09/查缺补漏/26.jpg">
-<meta property="og:updated_time" content="2019-10-13T04:08:29.655Z">
+<meta property="og:updated_time" content="2019-10-15T11:58:48.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查缺补漏">
-<meta name="twitter:description" content="java基础 异或( ^ ):  相同则false , 不同则 true。  短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。  对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。  按位与 &amp;：都是 1 才是 1。  按位或  |：只要有 1 ，则为 1 。  getBytes( String   str">
+<meta name="twitter:description" content="java基础 异或( ^ ):  相同则false , 不同则 true。 短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。 对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。 按位与 &amp;：都是 1 才是 1。 应用场景：获取网段值，IP地址与掩码255.255.255.0进行按位与（&amp;）运算得到高24位，即为">
 <meta name="twitter:image" content="http://yoursite.com/2019/10/09/查缺补漏/26.jpg">
 
 
@@ -433,7 +433,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-13 12:08:29" itemprop="dateModified" datetime="2019-10-13T12:08:29+08:00">2019-10-13</time>
+                <time title="修改时间：2019-10-15 19:58:48" itemprop="dateModified" datetime="2019-10-15T19:58:48+08:00">2019-10-15</time>
               </span>
             
           
@@ -494,29 +494,27 @@
 
       
         <h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><ul>
-<li><p>异或( ^ ):  相同则false , 不同则 true。</p>
+<li>异或( ^ ):  相同则false , 不同则 true。</li>
+<li>短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。</li>
+<li>对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。</li>
+<li>按位与 &：都是 1 才是 1。<ul>
+<li>应用场景：获取网段值，IP地址与掩码255.255.255.0进行按位与（&）运算得到高24位，即为当前IP 的网段。</li>
+</ul>
 </li>
-<li><p>短路或  ( || ):  会短路，若前半段式子为true，  则后面式子不成立。  “ | ” ：是后面的式子依然会成立。</p>
-</li>
-<li><p>对于数组：  实际内容存储在堆上，而实际内容的地址空间在栈上。</p>
-</li>
-<li><p>按位与 &：都是 1 才是 1。</p>
-</li>
-<li><p>按位或  |：只要有 1 ，则为 1 。</p>
-</li>
-<li><p>getBytes( String   str  )  ： 获取字符串的二进制形式。</p>
-</li>
-<li><p>Arrays的方法：</p>
-<ul>
+<li>按位或  |：只要有 1 ，则为 1 。</li>
+<li>getBytes( String   str  )  ： 获取字符串的二进制形式。</li>
+<li>Arrays的方法：<ul>
 <li>int   binarySearch(  long [ ]  a,long  key)  查找一个数</li>
 <li>int[  ]  copyOf(  int  [  ], int length)   数组复制</li>
 </ul>
 </li>
-<li><p>引用型变量存储在栈上， 保存的是实际内容的地址，而实际内容保存在堆山。</p>
-</li>
-<li><p>静态导入：  static import   直接导入静态方法和成员</p>
-</li>
+<li>引用型变量存储在栈上， 保存的是实际内容的地址，而实际内容保存在堆山。</li>
+<li>静态导入：  static import   直接导入静态方法和成员</li>
+<li>单精度占4字节，双精度占8字节</li>
 </ul>
+<h3 id="sleep函数的运用"><a href="#sleep函数的运用" class="headerlink" title="sleep函数的运用"></a>sleep函数的运用</h3><p>sleep 作为<strong>将当前线程挂起指定的时间</strong></p>
+<h4 id="假设现在是-2008-4-7-12-00-00-000，如果我调用一下-Thread-Sleep-1000-，在-2008-4-7-12-00-01-000-的时候，这个线程会不会被唤醒？"><a href="#假设现在是-2008-4-7-12-00-00-000，如果我调用一下-Thread-Sleep-1000-，在-2008-4-7-12-00-01-000-的时候，这个线程会不会被唤醒？" class="headerlink" title="假设现在是 2008-4-7 12:00:00.000，如果我调用一下 Thread.Sleep(1000) ，在 2008-4-7 12:00:01.000 的时候，这个线程会不会被唤醒？"></a>假设现在是 2008-4-7 12:00:00.000，如果我调用一下 Thread.Sleep(1000) ，在 2008-4-7 12:00:01.000 的时候，这个线程会不会被唤醒？</h4><p>答案是：不一定。因为你只是告诉操作系统：在未来的1000毫秒内我不想再参与到CPU竞争。那么1000毫秒过去之后，这时候也许另外一个线程正在使用CPU，那么这时候操作系统是不会重新分配CPU的，直到那个线程挂起或结束；况且，即使这个时候恰巧轮到操作系统进行CPU 分配，那么当前线程也不一定就是总优先级最高的那个，CPU还是可能被其他线程抢占去。</p>
+<h4 id="某人的代码中用了一句看似莫明其妙的话：Thread-Sleep-0-。既然是-Sleep-0-毫秒，那么他跟去掉这句代码相比，有啥区别么？"><a href="#某人的代码中用了一句看似莫明其妙的话：Thread-Sleep-0-。既然是-Sleep-0-毫秒，那么他跟去掉这句代码相比，有啥区别么？" class="headerlink" title="某人的代码中用了一句看似莫明其妙的话：Thread.Sleep(0) 。既然是 Sleep 0 毫秒，那么他跟去掉这句代码相比，有啥区别么？"></a>某人的代码中用了一句看似莫明其妙的话：Thread.Sleep(0) 。既然是 Sleep 0 毫秒，那么他跟去掉这句代码相比，有啥区别么？</h4><p>Thread.Sleep(0)的作用，就是“触发操作系统立刻重新进行一次CPU竞争”。竞争的结果也许是当前线程仍然获得CPU控制权，也许会换成别的线程获得CPU控制权。这也是我们在大循环里面经常会写一句Thread.Sleep(0) ，因为这样就给了其他线程比如Paint线程获得CPU控制权的权力，这样界面就不会假死在那里。</p>
 <h3 id="为什么需要两个survivor区"><a href="#为什么需要两个survivor区" class="headerlink" title="为什么需要两个survivor区"></a>为什么需要两个survivor区</h3><p>先来看一张图，假设没有Survivor区，Eden区每进行一次Minor GC，存活的对象就会被送到老年代。老年代很快被填满，触发Major GC（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）。老年代的内存空间远大于新生代，进行一次Full GC消耗的时间比Minor GC长得多。频发的Full GC消耗的时间是非常可观的，这一点会影响大型程序的执行和响应速度，更不要说某些连接会因为超时发生连接错误了。</p>
 <p><img src="/2019/10/09/查缺补漏/26.jpg" alt="26"></p>
 <ul>
@@ -880,7 +878,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java基础"><span class="nav-number">1.</span> <span class="nav-text">java基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要两个survivor区"><span class="nav-number">2.</span> <span class="nav-text">为什么需要两个survivor区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#surviror的from区可以创建对象吗"><span class="nav-number">3.</span> <span class="nav-text">surviror的from区可以创建对象吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务"><span class="nav-number">4.</span> <span class="nav-text">线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#秒杀扩展"><span class="nav-number">5.</span> <span class="nav-text">秒杀扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volatile"><span class="nav-number">6.</span> <span class="nav-text">Volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高并发场景针对字典树"><span class="nav-number">7.</span> <span class="nav-text">高并发场景针对字典树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构成重载的条件"><span class="nav-number">8.</span> <span class="nav-text">构成重载的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类与接口"><span class="nav-number">9.</span> <span class="nav-text">抽象类与接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java和C-区别"><span class="nav-number">10.</span> <span class="nav-text">java和C++区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器"><span class="nav-number">11.</span> <span class="nav-text">路由器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql中limit分页如何保证可靠性"><span class="nav-number">12.</span> <span class="nav-text">mysql中limit分页如何保证可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何监听tcp丢包的问题"><span class="nav-number">13.</span> <span class="nav-text">如何监听tcp丢包的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http是否需要多次建立tcp连接"><span class="nav-number">14.</span> <span class="nav-text">http是否需要多次建立tcp连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何理解HTTP协议是无状态的"><span class="nav-number">14.1.</span> <span class="nav-text">如何理解HTTP协议是无状态的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#长连接、短连接"><span class="nav-number">14.2.</span> <span class="nav-text">长连接、短连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？"><span class="nav-number">15.</span> <span class="nav-text">ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的场景就是："><span class="nav-number">15.1.</span> <span class="nav-text">常见的场景就是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#造成异常的常见原因："><span class="nav-number">15.2.</span> <span class="nav-text">造成异常的常见原因：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSuchMethodException遇到过吗？"><span class="nav-number">16.</span> <span class="nav-text">NoSuchMethodException遇到过吗？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java基础"><span class="nav-number">1.</span> <span class="nav-text">java基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sleep函数的运用"><span class="nav-number">2.</span> <span class="nav-text">sleep函数的运用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假设现在是-2008-4-7-12-00-00-000，如果我调用一下-Thread-Sleep-1000-，在-2008-4-7-12-00-01-000-的时候，这个线程会不会被唤醒？"><span class="nav-number">2.1.</span> <span class="nav-text">假设现在是 2008-4-7 12:00:00.000，如果我调用一下 Thread.Sleep(1000) ，在 2008-4-7 12:00:01.000 的时候，这个线程会不会被唤醒？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#某人的代码中用了一句看似莫明其妙的话：Thread-Sleep-0-。既然是-Sleep-0-毫秒，那么他跟去掉这句代码相比，有啥区别么？"><span class="nav-number">2.2.</span> <span class="nav-text">某人的代码中用了一句看似莫明其妙的话：Thread.Sleep(0) 。既然是 Sleep 0 毫秒，那么他跟去掉这句代码相比，有啥区别么？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要两个survivor区"><span class="nav-number">3.</span> <span class="nav-text">为什么需要两个survivor区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#surviror的from区可以创建对象吗"><span class="nav-number">4.</span> <span class="nav-text">surviror的from区可以创建对象吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务"><span class="nav-number">5.</span> <span class="nav-text">线程池执行任务时，如何在某一个任务执行完毕返回结果，就立即停止线程池其他任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#秒杀扩展"><span class="nav-number">6.</span> <span class="nav-text">秒杀扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volatile"><span class="nav-number">7.</span> <span class="nav-text">Volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高并发场景针对字典树"><span class="nav-number">8.</span> <span class="nav-text">高并发场景针对字典树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构成重载的条件"><span class="nav-number">9.</span> <span class="nav-text">构成重载的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类与接口"><span class="nav-number">10.</span> <span class="nav-text">抽象类与接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java和C-区别"><span class="nav-number">11.</span> <span class="nav-text">java和C++区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器"><span class="nav-number">12.</span> <span class="nav-text">路由器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql中limit分页如何保证可靠性"><span class="nav-number">13.</span> <span class="nav-text">mysql中limit分页如何保证可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何监听tcp丢包的问题"><span class="nav-number">14.</span> <span class="nav-text">如何监听tcp丢包的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http是否需要多次建立tcp连接"><span class="nav-number">15.</span> <span class="nav-text">http是否需要多次建立tcp连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何理解HTTP协议是无状态的"><span class="nav-number">15.1.</span> <span class="nav-text">如何理解HTTP协议是无状态的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#长连接、短连接"><span class="nav-number">15.2.</span> <span class="nav-text">长连接、短连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？"><span class="nav-number">16.</span> <span class="nav-text">ClassNotFoundException知道吗？遇到场景是什么？怎么解决的？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的场景就是："><span class="nav-number">16.1.</span> <span class="nav-text">常见的场景就是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#造成异常的常见原因："><span class="nav-number">16.2.</span> <span class="nav-text">造成异常的常见原因：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSuchMethodException遇到过吗？"><span class="nav-number">17.</span> <span class="nav-text">NoSuchMethodException遇到过吗？</span></a></li></ol></div>
             
 
           </div>
