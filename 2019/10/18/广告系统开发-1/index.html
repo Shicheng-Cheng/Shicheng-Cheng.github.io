@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/aim_16.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/aim.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="相关基础Maven坐标：  groupId: 工程组的标识。 artifactId: 工程的标识。 version: 工程版本号。  相关命令：  mvn -v                查看maven版本 mvn compile     编译，将java源文件编译成class文件 mvn test             执行test目录下的测试用例 mvn package     打包，将">
+<meta name="keywords" content="springcloud,kafka,Mysql,分布式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="广告系统开发(1)">
+<meta property="og:url" content="http://yoursite.com/2019/10/18/广告系统开发-1/index.html">
+<meta property="og:site_name" content="Pluto">
+<meta property="og:description" content="相关基础Maven坐标：  groupId: 工程组的标识。 artifactId: 工程的标识。 version: 工程版本号。  相关命令：  mvn -v                查看maven版本 mvn compile     编译，将java源文件编译成class文件 mvn test             执行test目录下的测试用例 mvn package     打包，将">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-21T11:11:44.297Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="广告系统开发(1)">
+<meta name="twitter:description" content="相关基础Maven坐标：  groupId: 工程组的标识。 artifactId: 工程的标识。 version: 工程版本号。  相关命令：  mvn -v                查看maven版本 mvn compile     编译，将java源文件编译成class文件 mvn test             执行test目录下的测试用例 mvn package     打包，将">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/10/18/广告系统开发-1/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>广告系统开发(1) | Pluto</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    
+   <div class="bg_content">
+       <canvas id="canvas"></canvas>
+  </div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pluto</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不忘初心，砥砺前行</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/广告系统开发-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Magical Cheng">
+      <meta itemprop="description" content="追求精致的coder">
+      <meta itemprop="image" content="/images/title.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pluto">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">广告系统开发(1)<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/广告系统开发-1.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-18 21:17:33" itemprop="dateCreated datePublished" datetime="2019-10-18T21:17:33+08:00">2019-10-18</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-21 19:11:44" itemprop="dateModified" datetime="2019-10-21T19:11:44+08:00">2019-10-21</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="相关基础"><a href="#相关基础" class="headerlink" title="相关基础"></a>相关基础</h1><h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p><strong>坐标</strong>：</p>
+<ul>
+<li>groupId: 工程组的标识。</li>
+<li>artifactId: 工程的标识。</li>
+<li>version: 工程版本号。</li>
+</ul>
+<p><strong>相关命令</strong>：</p>
+<ul>
+<li>mvn -v                查看maven版本</li>
+<li>mvn compile     编译，将java源文件编译成class文件</li>
+<li>mvn test             执行test目录下的测试用例</li>
+<li>mvn package     打包，将java工程打成jar包</li>
+<li>mvn clean          清理环境，清除target文件夹</li>
+</ul>
+<p><strong>相关特性</strong>：</p>
+<ul>
+<li>传递依赖   项目引用了一个jar包，而该jar包又引用了其他jar包，maven会把直接引用和间接引用的jar包都下载到本地。</li>
+<li>排除依赖：只想下载直接引用的jar包        (<strong>需要给出排除的jar包</strong>)</li>
+</ul>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">exclusions</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">groupId</span>></span>xxx<span class="tag">groupId</span>></span><br><span class="line">    <span class="tag"><<span class="name">artifactId</span>></span>xxx<span class="tag">artifactId</span>></span><br><span class="line"><span class="tag">exclusions</span>></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>依赖冲突    项目中多个jar同时引用了相同的jar时，会产生依赖冲突。有以下两种避免冲突的策略：<ul>
+<li>短路优先           引用路径短的优先</li>
+<li>声明优先          引用路径相同时，在pom.xml文件中谁先被声明，就使用谁。</li>
+</ul>
+</li>
+</ul>
+<p><strong>多模块项目/聚合</strong></p>
+<ul>
+<li><p>父模块pom文件的配置：packing类型必须是pom</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">groupId</span>></span>xxx<span class="tag">groupId</span>></span><br><span class="line"><span class="tag"><<span class="name">artifactId</span>></span>xxx<span class="tag">artifactId</span>></span><br><span class="line"><span class="tag"><<span class="name">packaging</span>></span>pom<span class="tag">packaging</span>></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>聚合子模块：使用modules标签</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">modules</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">module</span>></span>xxx<span class="tag">module</span>></span><br><span class="line">    <span class="tag"><<span class="name">module</span>></span>xxx<span class="tag">module</span>></span><br><span class="line">    <span class="tag"><<span class="name">module</span>></span>xxx<span class="tag">module</span>></span><br><span class="line"><span class="tag">modules</span>></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>父模块统一管理依赖包： 使用dependencyManagement标签</p>
+</li>
+<li><p>子模块需要在pom文件中声明父模块： 使用parent模块</p>
+</li>
+</ul>
+<p><strong>项目右侧将maven的pom文件导入，重新reimport，便可以跳转类。</strong></p>
+<h2 id="EurekaServer的开发"><a href="#EurekaServer的开发" class="headerlink" title="EurekaServer的开发"></a>EurekaServer的开发</h2><h3 id="单节点EurekaServer"><a href="#单节点EurekaServer" class="headerlink" title="单节点EurekaServer"></a>单节点EurekaServer</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//两个注解表明是EurekaServer,是springboot应用启动程序</span></span><br><span class="line"><span class="meta">@EnableEurekaServer</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EurekaApplication</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">        SpringApplication.run(EurekaApplication.class, args);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>添加配置文件application.yml</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">   name:</span> <span class="string">ad-eureka</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8000</span></span><br><span class="line"></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  instance:</span></span><br><span class="line"><span class="attr">    hostname:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line">    <span class="comment">#是否同步</span></span><br><span class="line"><span class="attr">    fetch-registry:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment">#是否注册</span></span><br><span class="line"><span class="attr">    register-with-eureka:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment">#指出主机地址和服务器端口</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://${eureka.instance.hostname}:${server.port}/eureka/</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="多节点EurekaServer"><a href="#多节点EurekaServer" class="headerlink" title="多节点EurekaServer"></a>多节点EurekaServer</h3><p>修改配置文件</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">ad-eureka</span></span><br><span class="line">  <span class="comment">#使用profiles文件去启动服务</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">server1</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="comment">#实例信息，这里要修改hosts文件，相同ip地址会出现问题</span></span><br><span class="line"><span class="attr">  instance:</span></span><br><span class="line"><span class="attr">    hostname:</span> <span class="string">server1</span></span><br><span class="line"><span class="attr">    prefer-ip-address:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line">    <span class="comment">#要指向另外两个节点</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://server2:8001/eureka/,http://server3:8002/eureka/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">ad-eureka</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">server2</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8001</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  instance:</span></span><br><span class="line"><span class="attr">    hostname:</span> <span class="string">server2</span></span><br><span class="line"><span class="attr">    prefer-ip-address:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://server1:8000/eureka/,http://server3:8002/eureka/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">ad-eureka</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">server3</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8002</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  instance:</span></span><br><span class="line"><span class="attr">    hostname:</span> <span class="string">server3</span></span><br><span class="line"><span class="attr">    prefer-ip-address:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://server1:8000/eureka/,http://server2:8001/eureka/</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>修改hosts文件</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">127.0.0.1 server1</span><br><span class="line">127.0.0.1 server2</span><br><span class="line">127.0.0.1 server3</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Eureka相关内容"><a href="#Eureka相关内容" class="headerlink" title="Eureka相关内容"></a>Eureka相关内容</h3><h4 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h4><ul>
+<li>Service Registry（服务注册）</li>
+<li>Service Discovery（服务发现）</li>
+</ul>
+<h4 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h4><p><strong>Eureka 由三个角色组成：</strong></p>
+<ul>
+<li><strong>Eureka Server（</strong>这一章实现的功能），提供服务注册与发现</li>
+<li><strong>Service Provider</strong>，服务提供方，将自身服务注册到 Eureka Server 上，从而让 Eureka Server 持有服务的元信息，让其他的服务消费方能够找到当前服务</li>
+<li><strong>Service Consumer</strong>，服务消费方，从 Eureka Server 上获取注册服务列表，从而能够消费服务</li>
+<li><strong>Service Provider/Consumer</strong> 相对于 Server，都叫做 Eureka Client</li>
+</ul>
+<h4 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h4><p><strong>问题说明</strong>：单节点的 Eureka Server 虽然能够实现基础功能，但是存在单点故障的问题，不能实现高可用。因为 Eureka Server 中存储了整个系统中所有的微服务的元数据信息，单节点一旦挂了，所有的服务信息都会丢失，造成整个系统的瘫痪。</p>
+<p><strong>解决办法</strong>：搭建 Eureka Server 集群，让各个 Server 节点之间互相注册，从而实现微服务元数据的复制/备份，即使单个节点失效，其他的 Server 节点仍可以继续提供服务</p>
+<h4 id="元信息"><a href="#元信息" class="headerlink" title="元信息"></a>元信息</h4><ul>
+<li>Eureka Server中维护了系统中服务的，其中有两种：标准元数据和自定义元数据。<br><strong>标准元数据</strong>：主机名、IP地址、端口号、状态页和健康检查等信息，这些信息都会被发布在服务注册表中，用于服务之间的调用。<br><strong>自定义元数据</strong>：可以使用eureka.instance.metadata-map配置，这些元数据可以在远程客户端中访问，但是一般不改变客户端行为，除非客户端知道该元数据的含义。</li>
+</ul>
+<p>如果我们在启动 Client（简单认为就是一个微服务）的时候，如果此时配置了错误的 Eureka Server 发现地址，或 Eureka Server 没有启动，那么，你会发现，Client 可以正常启动，但是不能完成注册。会抛出如下异常信息。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server</span><br><span class="line">  ......</span><br><span class="line">    at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:<span class="number">829</span>) ~[eureka-client-<span class="number">1.9</span>.2.jar:<span class="number">1.9</span>.2]</span><br><span class="line">  ......</span><br></pre></td></tr></tbody></table></figure>
+
+<p> 这里的异常信息，其实就告诉了我们，Client 向 Eureka Server 发起注册的过程。我们看一看 DiscoveryClient.register 里面做了什么 </p>
+<p>源码路径：<strong>eureka-client-1.9.2-sources.jar!/com/netflix/discovery/DiscoveryClient.java</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过 HTTP （eurekaTransport） 请求将 Eureka Client 注册到 Eureka Server 上</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">register</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>{</span><br><span class="line">    logger.info(PREFIX + <span class="string">"{}: registering service..."</span>, appPathIdentifier);</span><br><span class="line">    EurekaHttpResponse<void> httpResponse;</void></span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        <span class="comment">// 很显然，这里的 instanceInfo 就是 Client 的元数据</span></span><br><span class="line">        httpResponse = eurekaTransport.registrationClient.register(instanceInfo);</span><br><span class="line">    } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">        logger.warn(PREFIX + <span class="string">"{} - registration failed {}"</span>, appPathIdentifier, e.getMessage(), e);</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (logger.isInfoEnabled()) {</span><br><span class="line">        logger.info(PREFIX + <span class="string">"{} - registration status: {}"</span>, appPathIdentifier, httpResponse.getStatusCode());</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> httpResponse.getStatusCode() == <span class="number">204</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  instanceInfo 就是 com.netflix.appinfo.InstanceInfo 的对象实例，它被称作是 “应用实例信息”。所以，这个对象中包含的属性，最终会投递到 Eureka Server 中，也就是说，Eureka Server 维护的元信息就是 InstanceInfo 。</p>
+<h4 id="元信息的保存"><a href="#元信息的保存" class="headerlink" title="元信息的保存"></a>元信息的保存</h4><ul>
+<li>其中，涉及到<strong>元信息的保存</strong>，可能是Eureka Server内部维护着一张表来记录这些元信息，Eureka服务器没有后端存储，但注册表中的服务实例必须发送心跳信号以保持其注册是最新的，所以这可能使内存中完成。客户端可能还拥有一个eureka注册的内存缓存，这样，client不必为每个服务请求都去注册表。</li>
+</ul>
+<p>Client 向 Server 发起注册（Http 请求），那么Server 必须对外提供这个接口才可以。经过追踪 Server 端的源码（eureka-core-1.9.2-sources.jar），很容易可以找到 源码路径：<strong>com/netflix/eureka/resources/ApplicationResource.java</strong>，其中 addInstance 方法即实现了服务注册的功能（Server 端）。源码如下：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@POST</span></span><br><span class="line"><span class="meta">@Consumes</span>({<span class="string">"application/json"</span>, <span class="string">"application/xml"</span>})</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">addInstance</span><span class="params">(InstanceInfo info,</span></span></span><br><span class="line"><span class="function"><span class="params">                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION)</span> String isReplication) </span>{</span><br><span class="line">    <span class="comment">// 校验 instanceinfo 中是否包含必须的属性</span></span><br><span class="line">    <span class="keyword">if</span> (isBlank(info.getId())) {</span><br><span class="line">        <span class="keyword">return</span> Response.status(<span class="number">400</span>).entity(<span class="string">"Missing instanceId"</span>).build();</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (isBlank(info.getHostName())) {</span><br><span class="line">        <span class="keyword">return</span> Response.status(<span class="number">400</span>).entity(<span class="string">"Missing hostname"</span>).build();</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 注册信息校验</span></span><br><span class="line">    ......</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 通过 PeerAwareInstanceRegistry 的 register 方法完成 Client 的注册</span></span><br><span class="line">    registry.register(info, <span class="string">"true"</span>.equals(isReplication));</span><br><span class="line">    <span class="keyword">return</span> Response.status(<span class="number">204</span>).build();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p> 我们再去看 PeerAwareInstanceRegistry 的实现类：<strong>org.springframework.cloud.netflix.eureka.server.InstanceRegistry</strong> 的 register 方法的实现：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(<span class="keyword">final</span> InstanceInfo info, <span class="keyword">final</span> <span class="keyword">boolean</span> isReplication)</span> </span>{</span><br><span class="line">  <span class="comment">//传播 Client 的注册消息</span></span><br><span class="line">  handleRegistration(info, resolveInstanceLeaseDuration(info), isReplication);</span><br><span class="line">  <span class="comment">//调用父类 com.netflix.eureka.registry.AbstractInstanceRegistry 的 register 方法</span></span><br><span class="line">  <span class="keyword">super</span>.register(info, isReplication);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  继续看 <strong>AbstractInstanceRegistry</strong> 的 register 方法的实现：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(InstanceInfo registrant, <span class="keyword">int</span> leaseDuration, <span class="keyword">boolean</span> isReplication)</span> </span>{</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        read.lock();</span><br><span class="line">        <span class="comment">// registry 存储了注册信息, 它是一个两层的 Map 结构</span></span><br><span class="line">        <span class="comment">// ConcurrentHashMap<string, map<string, lease<instanceinfo>>> registry</string,></span></span><br><span class="line">        Map<string, lease<instanceinfo>> gMap = registry.get(registrant.getAppName());</string,></span><br><span class="line">        REGISTER.increment(isReplication);</span><br><span class="line">        <span class="keyword">if</span> (gMap == <span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">final</span> ConcurrentHashMap<string, lease<instanceinfo>> gNewMap = <span class="keyword">new</span> ConcurrentHashMap<string, lease<instanceinfo>>();</string,></string,></span><br><span class="line">            gMap = registry.putIfAbsent(registrant.getAppName(), gNewMap);</span><br><span class="line">            <span class="keyword">if</span> (gMap == <span class="keyword">null</span>) {</span><br><span class="line">                gMap = gNewMap;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        Lease<instanceinfo> existingLease = gMap.get(registrant.getId());</instanceinfo></span><br><span class="line">        ......</span><br><span class="line">        Lease<instanceinfo> lease = <span class="keyword">new</span> Lease<instanceinfo>(registrant, leaseDuration);</instanceinfo></instanceinfo></span><br><span class="line">        <span class="keyword">if</span> (existingLease != <span class="keyword">null</span>) {</span><br><span class="line">            lease.setServiceUpTimestamp(existingLease.getServiceUpTimestamp());</span><br><span class="line">        }</span><br><span class="line">        gMap.put(registrant.getId(), lease);</span><br><span class="line">        ......</span><br><span class="line">    } <span class="keyword">finally</span> {</span><br><span class="line">        read.unlock();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>InstanceInfo</strong> 中的元数据信息存储在一个 <strong>ConcurrentHashMap</strong> 对象中。Eureka Server 使用了两层 Map 结构做存储，第一层的 key 存储服务名：<strong>InstanceInfo</strong> 中的 <strong>appName</strong> 属性，第二层 key 存储实例名：<strong>InstanceInfo</strong> 中的 <strong>instanceId</strong> 属性。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/springcloud/" rel="tag"># springcloud</a>
+          
+            <a href="/tags/kafka/" rel="tag"># kafka</a>
+          
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
+          
+            <a href="/tags/分布式/" rel="tag"># 分布式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/17/海量数据/" rel="next" title="海量数据">
+                <i class="fa fa-chevron-left"></i> 海量数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/title.jpg" alt="Magical Cheng">
+            
+              <p class="site-author-name" itemprop="name">Magical Cheng</p>
+              <div class="site-description motion-element" itemprop="description">追求精致的coder</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Shicheng-Cheng" title="GitHub &rarr; https://github.com/Shicheng-Cheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关基础"><span class="nav-number">1.</span> <span class="nav-text">相关基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">1.1.</span> <span class="nav-text">Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EurekaServer的开发"><span class="nav-number">1.2.</span> <span class="nav-text">EurekaServer的开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单节点EurekaServer"><span class="nav-number">1.2.1.</span> <span class="nav-text">单节点EurekaServer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多节点EurekaServer"><span class="nav-number">1.2.2.</span> <span class="nav-text">多节点EurekaServer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Eureka相关内容"><span class="nav-number">1.2.3.</span> <span class="nav-text">Eureka相关内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#核心功能"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">核心功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本架构"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">基本架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高可用"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">高可用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元信息"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">元信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元信息的保存"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">元信息的保存</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Magical Cheng</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false}});</script></body>
+</html>
