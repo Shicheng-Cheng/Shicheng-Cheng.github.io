@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/10/21/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E6%8A%95%E6%94%BE%E6%A8%A1%E5%9D%97/</loc>
+    <lastmod>2019-10-22</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/10/22/%E6%89%8B%E6%92%95Mysqll/</loc>
+    <lastmod>2019-10-22</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/10/17/%E6%89%8B%E6%92%95dubbo/</loc>
     <lastmod>2019-10-22</lastmod>
   </url>  <url>
@@ -15,9 +21,6 @@
   </url>  <url>
     <loc>http://yoursite.com/2019/10/22/%E6%89%8B%E6%92%95Mysql/</loc>
     <lastmod>2019-10-22</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/10/21/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E6%8A%95%E6%94%BE%E6%A8%A1%E5%9D%97/</loc>
-    <lastmod>2019-10-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/08/%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%E6%B1%87%E6%80%BB/</loc>
     <lastmod>2019-10-17</lastmod>
