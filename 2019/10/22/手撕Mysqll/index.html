@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="说一下 MySQL 执行一条查询语句的内部执行过程？ 客户端先通过连接器连接到 MySQL 服务器。 连接器权限验证通过之后，先查询是否有查询缓存，如果有缓存（之前执行过此语句）则直接返回缓存数据，如果没有缓存则进入分析器。 分析器会对查询语句进行语法分析和词法分析，判断 SQL 语法是否正确，如果查询语法错误会直接返回给客户端错误信息，如果语法正确则进入优化器。 优化器是对查询语句进行优化处理，">
+  <meta name="description" content="Mysql基础说一下 MySQL 执行一条查询语句的内部执行过程？ 客户端先通过连接器连接到 MySQL 服务器。 连接器权限验证通过之后，先查询是否有查询缓存，如果有缓存（之前执行过此语句）则直接返回缓存数据，如果没有缓存则进入分析器。 分析器会对查询语句进行语法分析和词法分析，判断 SQL 语法是否正确，如果查询语法错误会直接返回给客户端错误信息，如果语法正确则进入优化器。 优化器是对查询语句">
 <meta name="keywords" content="Java,python,deeplearning,博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手撕Mysqll">
 <meta property="og:url" content="http://yoursite.com/2019/10/22/手撕Mysqll/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="说一下 MySQL 执行一条查询语句的内部执行过程？ 客户端先通过连接器连接到 MySQL 服务器。 连接器权限验证通过之后，先查询是否有查询缓存，如果有缓存（之前执行过此语句）则直接返回缓存数据，如果没有缓存则进入分析器。 分析器会对查询语句进行语法分析和词法分析，判断 SQL 语法是否正确，如果查询语法错误会直接返回给客户端错误信息，如果语法正确则进入优化器。 优化器是对查询语句进行优化处理，">
+<meta property="og:description" content="Mysql基础说一下 MySQL 执行一条查询语句的内部执行过程？ 客户端先通过连接器连接到 MySQL 服务器。 连接器权限验证通过之后，先查询是否有查询缓存，如果有缓存（之前执行过此语句）则直接返回缓存数据，如果没有缓存则进入分析器。 分析器会对查询语句进行语法分析和词法分析，判断 SQL 语法是否正确，如果查询语法错误会直接返回给客户端错误信息，如果语法正确则进入优化器。 优化器是对查询语句">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-22T05:24:56.074Z">
+<meta property="og:updated_time" content="2019-10-22T05:50:39.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手撕Mysqll">
-<meta name="twitter:description" content="说一下 MySQL 执行一条查询语句的内部执行过程？ 客户端先通过连接器连接到 MySQL 服务器。 连接器权限验证通过之后，先查询是否有查询缓存，如果有缓存（之前执行过此语句）则直接返回缓存数据，如果没有缓存则进入分析器。 分析器会对查询语句进行语法分析和词法分析，判断 SQL 语法是否正确，如果查询语法错误会直接返回给客户端错误信息，如果语法正确则进入优化器。 优化器是对查询语句进行优化处理，">
+<meta name="twitter:description" content="Mysql基础说一下 MySQL 执行一条查询语句的内部执行过程？ 客户端先通过连接器连接到 MySQL 服务器。 连接器权限验证通过之后，先查询是否有查询缓存，如果有缓存（之前执行过此语句）则直接返回缓存数据，如果没有缓存则进入分析器。 分析器会对查询语句进行语法分析和词法分析，判断 SQL 语法是否正确，如果查询语法错误会直接返回给客户端错误信息，如果语法正确则进入优化器。 优化器是对查询语句">
 
 
 
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2019-10-22 12:58:46 / 修改时间：13:24:56" itemprop="dateCreated datePublished" datetime="2019-10-22T12:58:46+08:00">2019-10-22</time>
+              <time title="创建时间：2019-10-22 12:58:46 / 修改时间：13:50:39" itemprop="dateCreated datePublished" datetime="2019-10-22T12:58:46+08:00">2019-10-22</time>
             </span>
           
 
@@ -481,7 +481,7 @@
       
 
       
-        <h3 id="说一下-MySQL-执行一条查询语句的内部执行过程？"><a href="#说一下-MySQL-执行一条查询语句的内部执行过程？" class="headerlink" title="说一下 MySQL 执行一条查询语句的内部执行过程？"></a>说一下 MySQL 执行一条查询语句的内部执行过程？</h3><ul>
+        <h2 id="Mysql基础"><a href="#Mysql基础" class="headerlink" title="Mysql基础"></a>Mysql基础</h2><h3 id="说一下-MySQL-执行一条查询语句的内部执行过程？"><a href="#说一下-MySQL-执行一条查询语句的内部执行过程？" class="headerlink" title="说一下 MySQL 执行一条查询语句的内部执行过程？"></a>说一下 MySQL 执行一条查询语句的内部执行过程？</h3><ul>
 <li>客户端先通过连接器连接到 MySQL 服务器。</li>
 <li>连接器权限验证通过之后，先查询是否有查询缓存，如果有缓存（之前执行过此语句）则直接返回缓存数据，如果没有缓存则进入分析器。</li>
 <li>分析器会对查询语句进行语法分析和词法分析，判断 SQL 语法是否正确，如果查询语法错误会直接返回给客户端错误信息，如果语法正确则进入优化器。</li>
@@ -499,27 +499,25 @@
 
 <h3 id="常用的存储引擎-InnoDB-和-MyISAM-有什么区别？"><a href="#常用的存储引擎-InnoDB-和-MyISAM-有什么区别？" class="headerlink" title="常用的存储引擎 InnoDB 和 MyISAM 有什么区别？"></a>常用的存储引擎 InnoDB 和 MyISAM 有什么区别？</h3><p>InnoDB 和 MyISAM 最大的区别是 InnoDB 支持事务，而 MyISAM 不支持事务，它们主要区别如下：</p>
 <ul>
-<li><p>InnoDB 支持崩溃后安全恢复，MyISAM 不支持崩溃后安全恢复；</p>
+<li><p>InnoDB 支持崩溃后安全恢复，MyISAM 不支持崩溃后安全恢复。</p>
 </li>
-<li><p>InnoDB 存储文件有两个，后缀名分别是.frm和.idb，其中.frm是表的定义文件，而idb是数据文件。</p>
-</li>
-<li><p>InnoDB 支持行级锁</p>
-</li>
-</ul>
-<p>  InnoDB中存在表锁和行锁，不过行锁是在命中索引的情况下才会起作用。，MyISAM 不支持行级锁，只支持到表锁；</p>
+<li><p>InnoDB 存储文件有两个，后缀名分别是.frm和.idb，其中.frm是表的定义文件，而idb是数据文件。而Myisam的存储文件有三个，后缀名分别是.frm、.MYD、MYI，其中.frm是表的定义文件，.MYD是数据文件，.MYI是索引文件。但两者都是通过b+树来存储的。</p>
 <ul>
-<li><p>InnoDB 支持外键，MyISAM 不支持外键；</p>
+<li>Myisam引擎也是采用的B+Tree结构来作为索引结构。由于Myisam中的索引和数据分别存放在不同的文件，所以在索引树中的叶子节点中存的数据是该索引对应的数据记录的地址，由于数据与索引不在一起，所以Myisam是非聚簇索引。</li>
+</ul>
 </li>
-<li><p>MyISAM 性能比 InnoDB 高；</p>
+<li><p>InnoDB 支持行级锁，不过行锁是在命中索引的情况下才会起作用。MyISAM 不支持行级锁，只支持到表锁。</p>
 </li>
-<li><p>MyISAM 支持 FULLTEXT 类型的全文索引，InnoDB 不支持 FULLTEXT 类型的全文索引，但是 InnoDB 可以使用 sphinx 插件支持全文索引，并且效果更好；</p>
+<li><p>InnoDB 支持外键，MyISAM 不支持外键。</p>
 </li>
-<li><p>InnoDB 主键查询性能高于 MyISAM。</p>
+<li><p>MyISAM由于有单独的索引文件，所以性能比 InnoDB 高。</p>
+</li>
+<li><p>MyISAM 支持 FULLTEXT 类型的全文索引，InnoDB 不支持 FULLTEXT 类型的全文索引，但是 InnoDB 可以使用 sphinx 插件支持全文索引，并且效果更好。</p>
+</li>
+<li><p>InnoDB 主键查询性能高于 MyISAM。、</p>
 </li>
 </ul>
-<h3 id="InnoDB-有哪些特性？"><a href="#InnoDB-有哪些特性？" class="headerlink" title="InnoDB 有哪些特性？"></a>InnoDB 有哪些特性？</h3><p><strong>1）插入缓冲(insert buffer)</strong>：对于非聚集索引的插入和更新，不是每一次直接插入索引页中，而是首先判断插入的非聚集索引页是否在缓冲池中，如果在，则直接插入，否则，先放入一个插入缓冲区中。好似欺骗数据库这个非聚集的索引已经插入到叶子节点了，然后再以一定的频率执行插入缓冲和非聚集索引页子节点的合并操作，这时通常能将多个插入合并到一个操作中，这就大大提高了对非聚集索引执行插入和修改操作的性能。</p>
-<p><strong>2）两次写(double write)</strong>：两次写给 InnoDB 带来的是可靠性，主要用来解决部分写失败(partial page write)。doublewrite 有两部分组成，一部分是内存中的 doublewrite buffer ，大小为 2M，另外一部分就是物理磁盘上的共享表空间中连续的 128 个页，即两个区，大小同样为 2M。当缓冲池的作业刷新时，并不直接写硬盘，而是通过 memcpy 函数将脏页先拷贝到内存中的 doublewrite buffer，之后通过 doublewrite buffer 再分两次写，每次写入 1M 到共享表空间的物理磁盘上，然后马上调用 fsync 函数，同步磁盘。如下图所示</p>
-<script>
+<h3 id="Count-1-、Count-主键-、Count-有什么区别？"><a href="#Count-1-、Count-主键-、Count-有什么区别？" class="headerlink" title="Count(1)、Count(主键)、Count(*****) 有什么区别？"></a>Count(1)、Count(主键)、Count(*****) 有什么区别？</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -797,7 +795,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说一下-MySQL-执行一条查询语句的内部执行过程？"><span class="nav-number">1.</span> <span class="nav-text">说一下 MySQL 执行一条查询语句的内部执行过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-提示“不存在此列”是执行到哪个节点报出的？"><span class="nav-number">2.</span> <span class="nav-text">MySQL 提示“不存在此列”是执行到哪个节点报出的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-查询缓存的功能有何优缺点？"><span class="nav-number">3.</span> <span class="nav-text">MySQL 查询缓存的功能有何优缺点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何关闭-MySQL-的查询缓存功能？"><span class="nav-number">4.</span> <span class="nav-text">如何关闭 MySQL 的查询缓存功能？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-的常用引擎都有哪些？"><span class="nav-number">5.</span> <span class="nav-text">MySQL 的常用引擎都有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-可以针对表级别设置数据库引擎吗？怎么设置？"><span class="nav-number">6.</span> <span class="nav-text">MySQL 可以针对表级别设置数据库引擎吗？怎么设置？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的存储引擎-InnoDB-和-MyISAM-有什么区别？"><span class="nav-number">7.</span> <span class="nav-text">常用的存储引擎 InnoDB 和 MyISAM 有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB-有哪些特性？"><span class="nav-number">8.</span> <span class="nav-text">InnoDB 有哪些特性？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql基础"><span class="nav-number">1.</span> <span class="nav-text">Mysql基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说一下-MySQL-执行一条查询语句的内部执行过程？"><span class="nav-number">1.1.</span> <span class="nav-text">说一下 MySQL 执行一条查询语句的内部执行过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-提示“不存在此列”是执行到哪个节点报出的？"><span class="nav-number">1.2.</span> <span class="nav-text">MySQL 提示“不存在此列”是执行到哪个节点报出的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-查询缓存的功能有何优缺点？"><span class="nav-number">1.3.</span> <span class="nav-text">MySQL 查询缓存的功能有何优缺点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何关闭-MySQL-的查询缓存功能？"><span class="nav-number">1.4.</span> <span class="nav-text">如何关闭 MySQL 的查询缓存功能？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-的常用引擎都有哪些？"><span class="nav-number">1.5.</span> <span class="nav-text">MySQL 的常用引擎都有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-可以针对表级别设置数据库引擎吗？怎么设置？"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL 可以针对表级别设置数据库引擎吗？怎么设置？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的存储引擎-InnoDB-和-MyISAM-有什么区别？"><span class="nav-number">1.7.</span> <span class="nav-text">常用的存储引擎 InnoDB 和 MyISAM 有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Count-1-、Count-主键-、Count-有什么区别？"><span class="nav-number">1.8.</span> <span class="nav-text">Count(1)、Count(主键)、Count(*****) 有什么区别？</span></a></li></ol></li></ol></div>
             
 
           </div>
