@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/2019/10/22/%E6%89%8B%E6%92%95Mysqll/</loc>
+    <loc>http://yoursite.com/2019/10/18/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E5%9F%BA%E7%A1%80%E5%87%86%E5%A4%87/</loc>
+    <lastmod>2019-10-22</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/10/21/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97/</loc>
+    <lastmod>2019-10-22</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/10/09/%E7%A7%92%E6%9D%80%E6%A8%A1%E5%9D%97-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    <lastmod>2019-10-22</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/10/22/%E6%89%8B%E6%92%95Mysql/</loc>
     <lastmod>2019-10-22</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/21/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E6%8A%95%E6%94%BE%E6%A8%A1%E5%9D%97/</loc>
-    <lastmod>2019-10-21</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/10/21/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BC%96%E5%86%99/</loc>
-    <lastmod>2019-10-21</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/10/18/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-1/</loc>
     <lastmod>2019-10-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/08/%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%E6%B1%87%E6%80%BB/</loc>
@@ -39,9 +42,6 @@
   </url>  <url>
     <loc>http://yoursite.com/2019/10/08/%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%20%20--%20%20JDK%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2019-10-11</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/10/09/%E7%A7%92%E6%9D%80%E6%A8%A1%E5%9D%97%20%EF%BC%881%EF%BC%89/</loc>
-    <lastmod>2019-10-10</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/08/%E5%85%B3%E9%94%AE%E5%AD%97/</loc>
     <lastmod>2019-10-09</lastmod>
