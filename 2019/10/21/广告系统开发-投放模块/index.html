@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="Pluto">
 <meta property="og:description" content="投放模块数据表设计 用户账户 推广计划（与推广单元是一对多） 推广单元  （与创意是多对多） 创意  层级设计  最高层级: 用户账户  第二层级:  推广计划  第三层级： 推广单元    关键词推广单元   地域推广单元   兴趣推广单元   人群推广单元     创意： 文字创意，图片创意等等   用户表    用户账户（ad_user) 含义    username 账户名称   toke">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-21T14:54:32.392Z">
+<meta property="og:updated_time" content="2019-10-21T16:22:55.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="广告系统开发-投放模块">
 <meta name="twitter:description" content="投放模块数据表设计 用户账户 推广计划（与推广单元是一对多） 推广单元  （与创意是多对多） 创意  层级设计  最高层级: 用户账户  第二层级:  推广计划  第三层级： 推广单元    关键词推广单元   地域推广单元   兴趣推广单元   人群推广单元     创意： 文字创意，图片创意等等   用户表    用户账户（ad_user) 含义    username 账户名称   toke">
@@ -416,13 +416,23 @@
                 
               
 
-              <time title="创建时间：2019-10-21 22:18:37 / 修改时间：22:54:32" itemprop="dateCreated datePublished" datetime="2019-10-21T22:18:37+08:00">2019-10-21</time>
+              <time title="创建时间：2019-10-21 22:18:37" itemprop="dateCreated datePublished" datetime="2019-10-21T22:18:37+08:00">2019-10-21</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-22 00:22:55" itemprop="dateModified" datetime="2019-10-22T00:22:55+08:00">2019-10-22</time>
+              </span>
             
           
 
@@ -628,7 +638,7 @@
 <table>
 <thead>
 <tr>
-<th align="center">关键词限制（ad_unit_keyword)</th>
+<th align="center">关键词限制（ad_unit_district)</th>
 <th align="center">含义</th>
 </tr>
 </thead>
@@ -649,7 +659,7 @@
 <table>
 <thead>
 <tr>
-<th align="center">关键词限制（ad_unit_keyword)</th>
+<th align="center">关键词限制（ad_unit_it)</th>
 <th align="center">含义</th>
 </tr>
 </thead>
@@ -660,6 +670,81 @@
 <tr>
 <td align="center">it_tag</td>
 <td align="center">兴趣标签</td>
+</tr>
+</tbody></table>
+<p><strong>创意表</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">创意(ad_creative)</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">name</td>
+<td align="center">创意名称</td>
+</tr>
+<tr>
+<td align="center">type</td>
+<td align="center">物料类型</td>
+</tr>
+<tr>
+<td align="center">material_type</td>
+<td align="center">物料子类型</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">高度</td>
+</tr>
+<tr>
+<td align="center">width</td>
+<td align="center">宽度</td>
+</tr>
+<tr>
+<td align="center">size</td>
+<td align="center">尺寸</td>
+</tr>
+<tr>
+<td align="center">duration</td>
+<td align="center">持续时长</td>
+</tr>
+<tr>
+<td align="center">audit_status</td>
+<td align="center">审核状态</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">标记当前所属用户</td>
+</tr>
+<tr>
+<td align="center">url</td>
+<td align="center">物料地址</td>
+</tr>
+<tr>
+<td align="center">create_time</td>
+<td align="center">创建时间</td>
+</tr>
+<tr>
+<td align="center">update_time</td>
+<td align="center">更新时间</td>
+</tr>
+</tbody></table>
+<p><strong>由于创意与推广单元是多对多关系，因此还要有一个创意与推广单元关联表。</strong></p>
+<p><strong>创意与推广单元关联表</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">创意与推广单元关联（creative_unit)</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">creative_id</td>
+<td align="center">关联创意id</td>
+</tr>
+<tr>
+<td align="center">unit_id</td>
+<td align="center">关联推广单元id</td>
 </tr>
 </tbody></table>
 <script>
@@ -739,6 +824,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/22/手撕Mysqll/" rel="prev" title="手撕Mysqll">
+                手撕Mysqll <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -808,7 +897,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
