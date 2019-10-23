@@ -594,13 +594,23 @@ Java 中普通 I/O 用输入/输出流方式实现，输入流 InputStream（终
                 
               
 
-              <time title="创建时间：2019-10-22 23:15:00 / 修改时间：23:50:34" itemprop="dateCreated datePublished" datetime="2019-10-22T23:15:00+08:00">2019-10-22</time>
+              <time title="创建时间：2019-10-22 23:15:00" itemprop="dateCreated datePublished" datetime="2019-10-22T23:15:00+08:00">2019-10-22</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-23 08:58:37" itemprop="dateModified" datetime="2019-10-23T08:58:37+08:00">2019-10-23</time>
+              </span>
             
           
 
@@ -654,9 +664,7 @@ Java 中普通 I/O 用输入/输出流方式实现，输入流 InputStream（终
         
           
             <p>
-              线程安全集合ConcurrentHashMap 在 1.8 中的实现，相比于 1.7 的版本变动很大。
-
-取消了 Segment 分段锁的数据结构，取而代之的是数组 + 链表 + 红黑树的结构。而对于锁的粒度，调整为对每个组元素加锁即对每个链表的头节点（ Node）用 Synchronized 加锁
+              锁机制乐观锁与悲观锁悲观锁悲观锁指对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制，数据库中实现是对数据记录操作前给记录加排它锁。如果获取锁失败，则说明数据正在被其它线程修改，则等待或者抛出异常。如果加锁成功，则获取记录，对其修改，然后事
               ...
             </p>
           <!--noindex-->

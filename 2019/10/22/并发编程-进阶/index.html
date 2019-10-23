@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="线程安全集合ConcurrentHashMap 在 1.8 中的实现，相比于 1.7 的版本变动很大。  取消了 Segment 分段锁的数据结构，取而代之的是数组 + 链表 + 红黑树的结构。而对于锁的粒度，调整为对每个组元素加锁即对每个链表的头节点（ Node）用 Synchronized 加锁，即如果要写入链表，必须获得这个链表的头节点的对象锁。然后是定位节点的 Hash 算法被简化了，这样">
+  <meta name="description" content="锁机制乐观锁与悲观锁悲观锁悲观锁指对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制，数据库中实现是对数据记录操作前给记录加排它锁。如果获取锁失败，则说明数据正在被其它线程修改，则等待或者抛出异常。如果加锁成功，则获取记录，对其修改，然后事务提交后释放排它锁。  使用悲观锁的一个常用的例子： select * from 表 where .">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发编程-进阶">
 <meta property="og:url" content="http://yoursite.com/2019/10/22/并发编程-进阶/index.html">
 <meta property="og:site_name" content="Pluto">
-<meta property="og:description" content="线程安全集合ConcurrentHashMap 在 1.8 中的实现，相比于 1.7 的版本变动很大。  取消了 Segment 分段锁的数据结构，取而代之的是数组 + 链表 + 红黑树的结构。而对于锁的粒度，调整为对每个组元素加锁即对每个链表的头节点（ Node）用 Synchronized 加锁，即如果要写入链表，必须获得这个链表的头节点的对象锁。然后是定位节点的 Hash 算法被简化了，这样">
+<meta property="og:description" content="锁机制乐观锁与悲观锁悲观锁悲观锁指对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制，数据库中实现是对数据记录操作前给记录加排它锁。如果获取锁失败，则说明数据正在被其它线程修改，则等待或者抛出异常。如果加锁成功，则获取记录，对其修改，然后事务提交后释放排它锁。  使用悲观锁的一个常用的例子： select * from 表 where .">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-22T15:50:34.715Z">
+<meta property="og:updated_time" content="2019-10-23T00:58:37.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发编程-进阶">
-<meta name="twitter:description" content="线程安全集合ConcurrentHashMap 在 1.8 中的实现，相比于 1.7 的版本变动很大。  取消了 Segment 分段锁的数据结构，取而代之的是数组 + 链表 + 红黑树的结构。而对于锁的粒度，调整为对每个组元素加锁即对每个链表的头节点（ Node）用 Synchronized 加锁，即如果要写入链表，必须获得这个链表的头节点的对象锁。然后是定位节点的 Hash 算法被简化了，这样">
+<meta name="twitter:description" content="锁机制乐观锁与悲观锁悲观锁悲观锁指对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制，数据库中实现是对数据记录操作前给记录加排它锁。如果获取锁失败，则说明数据正在被其它线程修改，则等待或者抛出异常。如果加锁成功，则获取记录，对其修改，然后事务提交后释放排它锁。  使用悲观锁的一个常用的例子： select * from 表 where .">
 
 
 
@@ -416,13 +416,23 @@
                 
               
 
-              <time title="创建时间：2019-10-22 23:15:00 / 修改时间：23:50:34" itemprop="dateCreated datePublished" datetime="2019-10-22T23:15:00+08:00">2019-10-22</time>
+              <time title="创建时间：2019-10-22 23:15:00" itemprop="dateCreated datePublished" datetime="2019-10-22T23:15:00+08:00">2019-10-22</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-23 08:58:37" itemprop="dateModified" datetime="2019-10-23T08:58:37+08:00">2019-10-23</time>
+              </span>
             
           
 
@@ -481,14 +491,41 @@
       
 
       
-        <h2 id="线程安全集合"><a href="#线程安全集合" class="headerlink" title="线程安全集合"></a>线程安全集合</h2><p>ConcurrentHashMap 在 1.8 中的实现，相比于 1.7 的版本变动很大。</p>
+        <h2 id="锁机制"><a href="#锁机制" class="headerlink" title="锁机制"></a>锁机制</h2><h3 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h3><h4 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h4><p>悲观锁指对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制，数据库中实现是对数据记录操作前给记录加排它锁。如果获取锁失败，则说明数据正在被其它线程修改，则等待或者抛出异常。如果加锁成功，则获取记录，对其修改，然后事务提交后释放排它锁。</p>
+<p> 使用悲观锁的一个常用的例子： <code>select * from 表 where .. for update;</code>。</p>
+<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><p> 它认为数据一般情况下不会造成冲突，所以在访问记录前不会加排它锁，而是在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测。具体说是根据 update 返回的行数让用户决定如何去做。</p>
+<p> <code>update 表 set comment='***',status='operator',version=version+1 where version = 1 and id = 1;</code></p>
+<p>乐观锁并不会使用数据库提供的锁机制，一般在表添加 version 字段或者使用业务状态来做。乐观锁直到提交的时候才去锁定，所以不会产生任何锁和死锁。</p>
+<h4 id="公平锁与非公平锁"><a href="#公平锁与非公平锁" class="headerlink" title="公平锁与非公平锁"></a>公平锁与非公平锁</h4><p>根据线程获取锁的抢占机制锁可以分为公平锁和非公平锁，公平锁表示线程获取锁的顺序是按照线程请求锁的时间长短来分决定的的，也就是最早获取锁的线程将最早获取到锁，也就是先来先得的 FIFO 顺序。而非公平锁则运行时候闯入，也就是先来不一定先得。</p>
+<p>ReentrantLock 提供了公平和非公平锁的实现：</p>
+<ul>
+<li>公平锁：<code>ReentrantLock pairLock = new ReentrantLock(true);</code></li>
+<li>非公平锁：<code>ReentrantLock pairLock = new ReentrantLock(false);</code></li>
+</ul>
+<p>如果构造函数不传递参数，则默认是非公平锁。</p>
+<p>具体来说假设线程 A 已经持有了锁，这时候线程 B 请求该锁将会被挂起，当线程 A 释放锁后，假如当前有线程 C 也需要获取该锁，如果采用非公平锁方式，则根据线程调度策略线程 B 和 C 两者之一可能获取锁，这时候不需要任何其它干涉，如果使用公平锁则需要把 C 挂起，让 B 获取当前锁。</p>
+<p>在没有公平性需求的前提下尽量使用非公平锁，因为公平锁会带来性能开销。</p>
+<h4 id="独占锁与共享锁"><a href="#独占锁与共享锁" class="headerlink" title="独占锁与共享锁"></a>独占锁与共享锁</h4><p>根据锁只能被单个线程持有还是能被多个线程共同持有，锁分为独占锁和共享锁。</p>
+<p>独占锁保证任何时候都只有一个线程能得到锁，ReentrantLock 就是以独占方式实现的。共享锁则同时有多个线程可以持有，例如 ReadWriteLock 读写锁，它允许一个资源可以被多线程同时进行读操作。</p>
+<p>独占锁是一种悲观锁，每次访问资源都先加上互斥锁，这限制了并发性，因为读操作并不会影响数据一致性，而独占锁只允许同时一个线程读取数据，其它线程必须等待当前线程释放锁才能进行读取。</p>
+<p>共享锁则是一种乐观锁，它放宽了加锁的条件，允许多个线程同时进行读操作。</p>
+<h4 id="可重入锁"><a href="#可重入锁" class="headerlink" title="可重入锁"></a>可重入锁</h4><p>当一个线程要获取一个被其它线程持有的独占锁时候，该线程会被阻塞，那么当一个线程再次获取它自己已经获取的锁时候是否会被阻塞那?如果不被阻塞，那么我们说该锁是可重入的，也就是只要该线程获取了该锁，那么可以无限制次数（高级篇我们会知道严格来说是有限次数）进入被该锁锁住的代码。</p>
+<p>实际上 synchronized 内部锁是可重入锁，可重入锁的原理是在锁内部维护了一个线程标示，用来标示该锁目前被那个线程占用，然后关联一个计数器。一开始计数器值为0，说明该锁没有被任何线程占用，当一个线程获取了该锁，计数器会变成1，其它线程在获取该锁时候发现锁的所有者不是自己就会被阻塞挂起。</p>
+<p>但是当获取该锁的线程再次获取锁时候发现锁拥有者是自己，就会把计数器值+1， 当释放锁后计数器会-1，当计数器为0时候，锁里面的线程标示重置为 null，这时候阻塞的线程会获取被唤醒来竞争获取该锁。</p>
+<h2 id="线程安全集合"><a href="#线程安全集合" class="headerlink" title="线程安全集合"></a>线程安全集合</h2><p>ConcurrentHashMap 在 1.8 中的实现，相比于 1.7 的版本变动很大。</p>
 <ul>
 <li>取消了 Segment 分段锁的数据结构，取而代之的是数组 + 链表 + 红黑树的结构。而对于锁的粒度，调整为对每个组元素加锁即对每个链表的头节点（ Node）用 Synchronized 加锁，即如果要写入链表，必须获得这个链表的头节点的对象锁。然后是定位节点的 Hash 算法被简化了，这样带来的弊端是 Hash 冲突会加剧。因此在链表节点数量大于 8 时，会将链表转化为红黑树进行存储。这样一来，查询的时间复杂度就会由原先的 O(n) 变为 O(logN)。</li>
 <li>在第一次添加元素的时候，默认初期长度为 16，当往 map 中继续添加元素的时候，通过 hash 值跟数组长度进行与操作来决定放在数组的哪个位置。如果出现放在同一个位置的时候，优先以链表的形式存放，在同一个位置的个数又达到了 8 个以上，如果数组的长度还小于 64 的时候，则会扩容数组。如果数组的长度大于等于 64 了的话，在会将该节点的链表转换成树。通过扩容数组的方式来把这些节点给分散开。</li>
 <li>然后将这些元素复制到扩容后的新的数组中，同一个链表中的元素通过 Hash 值的数组长度位来区分，是还是放在原来的位置还是放到扩容的长度的相同位置去 。在扩容完成之后，如果某个节点的是树，同时现在该节点的个数又小于等于 6 个了，则会将该树转为链表。记住，不是少于 8 个就转为链表哦</li>
 </ul>
 <p>在 <strong>ConcurrentHashMap</strong> 数据存储的过程。其保证线程安全主要通过 <strong>Node</strong> + <strong>CAS</strong> + <strong>Synchronized</strong>。</p>
-<h3 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h3><p>首先它具有三个操作数，<strong>内存位置 V</strong>，<strong>预期值 A</strong> 和 <strong>新值 B</strong>。如果在执行过程中，发现内存中的值 V 与预期值 A 相匹配，那么他会将 V 更新为新值 A。如果预期值 A 和内存中的值 V 不相匹配，那么处理器就不会执行任何操作。</p>
+<h3 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h3><p>CAS 即 <strong>Compare And Swap</strong>，是 JDK 提供的非阻塞原子性操作，它通过硬件保证了比较-更新操作的原子性，JDK 里面的 Unsafe 类提供了一些列的 <code>compareAndSwap</code> 方法，下面以 compareAndSwapLong 为例进行简单介绍。</p>
+<ul>
+<li>boolean compareAndSwapLong(Object obj,long valueOffset,long expect, long update)方法。</li>
+</ul>
+<p>compareAndSwap 的意思也就是比较并交换，CAS 有四个操作数分别为：对象内存位置，对象中的变量的偏移量，变量预期值 expect，新的值 update。</p>
+<p>操作含义是如果对象 obj 中内存偏移量为 valueOffset 位置的变量值为 expect 则使用新的值 update 替换旧的值 expect。这个是处理器提供的一个原子性指令。</p>
+<p>一般CAS具有三个操作数，<strong>内存位置 V</strong>，<strong>预期值 A</strong> 和 <strong>新值 B</strong>。如果在执行过程中，发现内存中的值 V 与预期值 A 相匹配，那么他会将 V 更新为新值 A。如果预期值 A 和内存中的值 V 不相匹配，那么处理器就不会执行任何操作。</p>
 <p>这是一个非阻塞方法 （Non-blocking Algorithms），虽然在处理器层面其是阻塞的，但是由于处理器层面的阻塞时间极其的短，在代码层面不会有体现。</p>
 <h4 id="CAS存在的三大问题"><a href="#CAS存在的三大问题" class="headerlink" title="CAS存在的三大问题"></a><strong>CAS存在的三大问题</strong></h4><ul>
 <li><strong>ABA 问题</strong>：因为 CAS 需要在操作值的时候检查下值有没有发生变化，如果没有发生变化则更新，但是如果一个值原来是 A，变成了 B，又变成了 A，那么使用 CAS 进行检查时会发现它的值没有发生变化，但是实际上却变化了。ABA 问题的解决思路就是使用版本号。在变量前面追加上版本号，每次变量更新的时候把版本号加一，那么 A－B－A 就会变成 1A - 2B －3A。</li>
@@ -805,7 +842,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全集合"><span class="nav-number">1.</span> <span class="nav-text">线程安全集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CAS"><span class="nav-number">1.1.</span> <span class="nav-text">CAS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CAS存在的三大问题"><span class="nav-number">1.1.1.</span> <span class="nav-text">CAS存在的三大问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池"><span class="nav-number">2.</span> <span class="nav-text">线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#newCachedThreadPool"><span class="nav-number">2.1.</span> <span class="nav-text">newCachedThreadPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newFixedThreadPool"><span class="nav-number">2.2.</span> <span class="nav-text">newFixedThreadPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newSingleThreadExecutor"><span class="nav-number">2.3.</span> <span class="nav-text">newSingleThreadExecutor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池设计"><span class="nav-number">2.4.</span> <span class="nav-text">线程池设计</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#锁机制"><span class="nav-number">1.</span> <span class="nav-text">锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乐观锁与悲观锁"><span class="nav-number">1.1.</span> <span class="nav-text">乐观锁与悲观锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#悲观锁"><span class="nav-number">1.1.1.</span> <span class="nav-text">悲观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乐观锁"><span class="nav-number">1.1.2.</span> <span class="nav-text">乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#公平锁与非公平锁"><span class="nav-number">1.1.3.</span> <span class="nav-text">公平锁与非公平锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#独占锁与共享锁"><span class="nav-number">1.1.4.</span> <span class="nav-text">独占锁与共享锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可重入锁"><span class="nav-number">1.1.5.</span> <span class="nav-text">可重入锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全集合"><span class="nav-number">2.</span> <span class="nav-text">线程安全集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CAS"><span class="nav-number">2.1.</span> <span class="nav-text">CAS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CAS存在的三大问题"><span class="nav-number">2.1.1.</span> <span class="nav-text">CAS存在的三大问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池"><span class="nav-number">3.</span> <span class="nav-text">线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#newCachedThreadPool"><span class="nav-number">3.1.</span> <span class="nav-text">newCachedThreadPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newFixedThreadPool"><span class="nav-number">3.2.</span> <span class="nav-text">newFixedThreadPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newSingleThreadExecutor"><span class="nav-number">3.3.</span> <span class="nav-text">newSingleThreadExecutor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池设计"><span class="nav-number">3.4.</span> <span class="nav-text">线程池设计</span></a></li></ol></li></ol></div>
             
 
           </div>
